@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Layout from '@/pages/Layout'
 
 const HomePage = lazy(() => import('@/pages/HomePage'))
-const MovieListPage = lazy(() => import('@/pages/MovieListPage'))
+const MovieListPage = lazy(() => import('@/pages/ShowListPage'))
 const MovieDetailsPage = lazy(() => import('@/pages/MovieDetailsPage'))
 
 export default function AppRouter() {

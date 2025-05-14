@@ -5,7 +5,7 @@
 - explorar lista de películas
 - Modo producción
 - La gestión de estado (opcional) debe ser con `@preact/signals-react`.
-- API https://www.tvmaze.com/api
+- API https://www.tvmaze.com/api `GET https://api.tvmaze.com/shows`
 - README qué harías diferente con más tiempo.
 
 ## Instrucciones

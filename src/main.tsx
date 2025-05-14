@@ -1,12 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './index.css'
 import AppRouter from './router.tsx'
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div className="container mx-auto max-w-5xl">
+    <QueryClientProvider client={queryClient}>
       <AppRouter />
-    </div>
+    </QueryClientProvider>
   </StrictMode>,
 )
