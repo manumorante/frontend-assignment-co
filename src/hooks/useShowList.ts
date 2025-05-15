@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { getShows } from '@/lib/api'
+import { api } from '@/lib/api'
 
 const PAGE_SIZE = 20
 
@@ -13,7 +13,7 @@ export function useShowList() {
     isError,
   } = useQuery({
     queryKey: ['shows'],
-    queryFn: getShows,
+    queryFn: api.getShows,
   })
 
   // shows current page
