@@ -1,9 +1,8 @@
 import ShowList from '@/components/ShowList'
 
-export default function MovieListPage() {
+export default function ShowListPage() {
   return (
-    <div>
-      <h1>MovieListPage</h1>
+    <div className="M">
       <ShowList />
     </div>
   )

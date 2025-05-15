@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Layout from '@/pages/Layout'
 
 const HomePage = lazy(() => import('@/pages/HomePage'))
-const MovieListPage = lazy(() => import('@/pages/ShowListPage'))
-const MovieDetailsPage = lazy(() => import('@/pages/MovieDetailsPage'))
+const ShowListPage = lazy(() => import('@/pages/ShowListPage'))
+const ShowDetailsPage = lazy(() => import('@/pages/ShowDetailsPage'))
 
 export default function AppRouter() {
   return (
@@ -14,8 +14,8 @@ export default function AppRouter() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="shows" element={<MovieListPage />} />
-            <Route path="shows/:id" element={<MovieDetailsPage />} />
+            <Route path="shows" element={<ShowListPage />} />
+            <Route path="shows/:id" element={<ShowDetailsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
