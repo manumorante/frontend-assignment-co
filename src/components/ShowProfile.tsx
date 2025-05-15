@@ -31,7 +31,7 @@ export default function ShowProfile({ id }: { id: string }) {
               {show.genres && show.genres.length > 0 && (
                 <div className="mb-3 flex flex-wrap gap-2">
                   {show.genres.map((genre) => (
-                    <span key={genre} className="rounded bg-gray-100 px-2 py-1 text-sm">
+                    <span key={genre} className="tag">
                       {genre}
                     </span>
                   ))}

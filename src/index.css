@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @layer components {
+  /* Buttons */
   .button {
     @apply inline-flex h-9 px-3 py-1.5
     cursor-pointer touch-none
@@ -13,5 +14,10 @@
     hover:bg-zinc-700 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2
     disabled:pointer-events-none disabled:opacity-50;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Tags */
+  .tag {
+    @apply rounded-md border border-neutral-300 px-2 py-1 text-sm text-neutral-500;
   }
 }
