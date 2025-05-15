@@ -2,10 +2,10 @@ import { ErrorMessage, Loading, ShowCard } from '@/components'
 import { useShowList } from '@/hooks/useShowList'
 
 export default function ShowList() {
-  const { shows, isLoading, isError, fetchNextPage, hasNextPage } = useShowList()
+  const { shows, isLoading, error, fetchNextPage, hasNextPage } = useShowList()
 
   if (isLoading) return <Loading />
-  if (isError) return <ErrorMessage message="Error loading shows" />
+  if (error) return <ErrorMessage message={error.message} />
   if (shows.length === 0) return <ErrorMessage message="No results" />
 
   return (

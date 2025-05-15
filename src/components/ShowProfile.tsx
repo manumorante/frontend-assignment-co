@@ -4,10 +4,10 @@ import { ErrorMessage, Loading } from '@/components'
 import Poster from './Poster'
 
 export default function ShowProfile({ id }: { id: string }) {
-  const { show, isLoading, isError, error } = useShow(id)
+  const { show, isLoading, error } = useShow(id)
 
   if (isLoading) return <Loading />
-  if (isError) return <ErrorMessage message={error?.message || 'Error loading show'} />
+  if (error) return <ErrorMessage message={error.message || 'Error loading show'} />
   if (!show) return <ErrorMessage message="Show not found" />
 
   return (
