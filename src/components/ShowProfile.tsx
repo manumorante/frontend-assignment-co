@@ -15,12 +15,12 @@ export default function ShowProfile({ id }: { id: string }) {
   return (
     <div className="w-full p-4 sm:p-0">
       <div className="flex flex-col sm:flex-row sm:gap-6">
-        <div className="mb-4 w-full sm:mb-0 sm:w-1/3">
+        <div className="w-full sm:w-1/3">
           <Poster alt={show.name} src={show.image.original} />
         </div>
 
         <div className="w-full py-3 sm:w-2/3">
-          <h1 className="mb-3 text-xl font-light sm:text-4xl">{show.name}</h1>
+          <h1 className="my-3 text-xl font-light sm:text-4xl">{show.name}</h1>
 
           <div className="flex w-full justify-between gap-6">
             <div className="ContentCol space-y-5">
