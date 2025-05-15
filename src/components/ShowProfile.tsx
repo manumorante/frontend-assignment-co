@@ -17,35 +17,39 @@ export default function ShowProfile({ id }: { id: string }) {
           <Poster alt={show.name} src={show.image.original} />
         </div>
 
-        <div className="w-full sm:w-2/3">
-          <h1 className="mb-3 text-xl font-bold sm:text-2xl">{show.name}</h1>
+        <div className="w-full py-3 sm:w-2/3">
+          <h1 className="mb-3 text-xl font-light sm:text-4xl">{show.name}</h1>
 
-          {/* genres */}
-          {show.genres && show.genres.length > 0 && (
-            <div className="mb-3 flex flex-wrap gap-2">
-              {show.genres.map((genre) => (
-                <span key={genre} className="rounded bg-gray-100 px-2 py-1 text-sm">
-                  {genre}
-                </span>
-              ))}
+          <div className="flex w-full justify-between gap-6">
+            <div className="ContentCol space-y-5">
+              {/* Summary */}
+              {show.summary && (
+                <div className="text-lg" dangerouslySetInnerHTML={{ __html: show.summary }} />
+              )}
+
+              {/* Genres */}
+              {show.genres && show.genres.length > 0 && (
+                <div className="mb-3 flex flex-wrap gap-2">
+                  {show.genres.map((genre) => (
+                    <span key={genre} className="rounded bg-gray-100 px-2 py-1 text-sm">
+                      {genre}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
 
-          {/* Rating */}
-          {show.rating?.average && (
-            <div className="mb-3 flex items-center gap-1">
-              <StarIcon className="h-5 w-5" />
-              {show.rating.average}
+            <div className="AsideCol flex flex-col gap-3">
+              {/* Rating */}
+              {show.rating?.average && (
+                <div className="flex flex-col items-center gap-1 rounded-lg border border-neutral-300 px-3 py-2 text-3xl font-light text-neutral-500">
+                  {show.rating.average}
+                  <span className="text-base uppercase">Rating</span>
+                </div>
+              )}
+              <StarIcon className="h-7 w-7" />
             </div>
-          )}
-
-          {/* Resumen con HTML sanitizado */}
-          {show.summary && (
-            <div
-              className="prose-sm max-w-none overflow-x-auto"
-              dangerouslySetInnerHTML={{ __html: show.summary }}
-            />
-          )}
+          </div>
         </div>
       </div>
     </div>
