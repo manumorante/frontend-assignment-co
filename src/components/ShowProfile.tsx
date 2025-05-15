@@ -9,7 +9,7 @@ export default function ShowProfile({ id }: { id: string }) {
   const [isFavorite, setIsFavorite] = useState(false)
 
   if (isLoading) return <Loading />
-  if (error) return <ErrorMessage message={error.message || 'Error loading show'} />
+  if (error) return <ErrorMessage message={error.message} />
   if (!show) return <ErrorMessage message="Show not found" />
 
   return (

@@ -5,7 +5,7 @@ export default function Navigation() {
     <div className="Navigation space-x-4 py-4">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/shows">Shows</NavLink>
-      <NavLink to="/shows/id-example">Shows ID</NavLink>
+      <NavLink to="/favorites">Favorites</NavLink>
     </div>
   )
 }

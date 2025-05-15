@@ -1,11 +1,12 @@
 import { Loading } from '@/components'
+import Layout from '@/pages/Layout'
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import Layout from '@/pages/Layout'
 
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const ShowListPage = lazy(() => import('@/pages/ShowListPage'))
 const ShowDetailsPage = lazy(() => import('@/pages/ShowDetailsPage'))
+const ShowFavoritesPage = lazy(() => import('@/pages/ShowFavoritesPage'))
 
 export default function AppRouter() {
   return (
@@ -16,6 +17,7 @@ export default function AppRouter() {
             <Route index element={<HomePage />} />
             <Route path="shows" element={<ShowListPage />} />
             <Route path="shows/:id" element={<ShowDetailsPage />} />
+            <Route path="favorites" element={<ShowFavoritesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
