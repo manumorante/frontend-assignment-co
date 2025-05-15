@@ -6,11 +6,11 @@ export default function ShowCard({ show }: { show: Show }) {
   const singleUrl = `/shows/${show.id}`
 
   return (
-    <div className="ShowCard">
-      <Link to={singleUrl}>
-        <Poster alt={show.name} src={show.image.medium} />
-        <h3>{show.name}</h3>
-      </Link>
-    </div>
+    <Link
+      to={singleUrl}
+      className="ShowCard rounded-lg bg-white/0 p-3 text-neutral-500 transition-colors duration-400 ease-in-out hover:bg-white hover:text-black">
+      <Poster alt={show.name} src={show.image.medium} />
+      <h3 className="p-2 font-light">{show.name}</h3>
+    </Link>
   )
 }
