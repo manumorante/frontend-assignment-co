@@ -3,7 +3,7 @@ import { Outlet } from 'react-router'
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen flex-col gap-4">
+    <div className="flex min-h-screen flex-col gap-8">
       <Header />
 
       <main className="container mx-auto max-w-5xl flex-grow px-4 sm:px-0">

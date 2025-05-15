@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 const styles = {
   // Estilos para los cards que se repiten
   cardWrapper: 'w-64 flex',
-  card: 'rounded-lg border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
-  cardTitle: 'text-lg font-medium text-gray-900',
-  cardDesc: 'mt-2 text-sm text-gray-500',
+  card: 'rounded-lg border border-slate-200 bg-white shadow-xs transition-shadow duration-300 hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
+  cardTitle: 'text-lg font-medium text-slate-900',
+  cardDesc: 'mt-2 text-sm text-slate-500',
 }
 
 // Datos de las tarjetas - sin referencias a pacientes
@@ -36,10 +36,10 @@ export default function HomePage() {
         {/* Hero Section */}
         <div className="max-w-7xl py-16 text-center">
           <h1 className="text-4xl tracking-tight sm:text-5xl md:text-6xl">
-            <span className="block font-bold text-zinc-800">Correcto</span>
-            <span className="block font-light text-zinc-600">Frontend Assingment</span>
+            <span className="block font-bold text-slate-800">Correcto</span>
+            <span className="block font-light text-slate-600">Frontend Assingment</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-sm text-base text-gray-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
+          <p className="mx-auto mt-3 max-w-sm text-base text-slate-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
             I'm excited to be able to showcase my skills with a challenge similar to what my
             colleagues at your company might be doing every day—at least one of them in this case!
           </p>
