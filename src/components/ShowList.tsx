@@ -9,8 +9,8 @@ export default function ShowList() {
   if (shows.length === 0) return <ErrorMessage message="No results" />
 
   return (
-    <div className="ShowList space-y-5">
-      <div className="space-y-5 divide-y divide-neutral-500">
+    <div className="ShowList w-full">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {shows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}
