@@ -1,15 +1,34 @@
-import { useInfiniteQuery } from '@tanstack/react-query'
+import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { getShows } from '@/lib/api'
+
+const PAGE_SIZE = 20
 
 export function useShowList() {
-  return useInfiniteQuery({
+  const [page, setPage] = useState(0)
+
+  const {
+    data = [],
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ['shows'],
-    queryFn: async ({ pageParam = 0 }) => {
-      const response = await fetch(`https://api.tvmaze.com/shows?page=${pageParam}`)
-      return response.json()
-    },
-    getNextPageParam: (lastPage, _allPages, lastPageParam) => {
-      return lastPage.length === 250 ? lastPageParam + 1 : undefined
-    },
-    initialPageParam: 0,
+    queryFn: getShows,
   })
+
+  // shows current page
+  const shows = data.slice(0, (page + 1) * PAGE_SIZE)
+  const hasNextPage = shows.length < data.length
+
+  const fetchNextPage = () => {
+    setPage((prev) => prev + 1)
+  }
+
+  return {
+    shows,
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+  }
 }
