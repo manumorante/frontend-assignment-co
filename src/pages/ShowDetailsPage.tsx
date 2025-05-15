@@ -1,3 +1,13 @@
+import ShowProfile from '@/components/ShowProfile'
+import { useParams } from 'react-router'
+
 export default function ShowDetailsPage() {
-  return <div>ShowDetailsPage</div>
+  const { id } = useParams()
+  if (!id) return null
+
+  return (
+    <div>
+      <ShowProfile id={id} />
+    </div>
+  )
 }

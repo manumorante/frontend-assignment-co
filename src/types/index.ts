@@ -4,10 +4,14 @@ export interface ShowImage {
 }
 
 export interface Show {
-  id: number
+  id: string
   name: string
   summary?: string
-  image?: ShowImage
+  image: ShowImage
+  genres?: string[]
+  rating?: {
+    average: number
+  }
 }
 
 export type ShowDraft = Omit<Show, 'id'>
