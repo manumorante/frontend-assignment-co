@@ -10,7 +10,7 @@ export default function ShowList() {
 
   return (
     <div className="ShowList w-full">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         {shows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}
