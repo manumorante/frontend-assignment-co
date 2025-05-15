@@ -1,5 +1,4 @@
-import { Outlet } from 'react-router'
-import { NavLink } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 
 export default function Layout() {
   return (
