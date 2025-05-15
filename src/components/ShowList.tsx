@@ -17,7 +17,7 @@ export default function ShowList() {
       </div>
 
       {hasNextPage && (
-        <button className="button" onClick={() => fetchNextPage()}>
+        <button className="button secondary my-4 w-full" onClick={() => fetchNextPage()}>
           Load More Shows
         </button>
       )}

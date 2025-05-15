@@ -44,7 +44,7 @@ export default function ShowProfile({ id }: { id: string }) {
             <div className="AsideCol flex flex-col gap-3">
               {/* Rating */}
               {show.rating?.average && (
-                <div className="flex flex-col items-center gap-1 rounded-lg border border-neutral-300 px-2.5 py-1.5 text-3xl font-light text-neutral-500">
+                <div className="flex flex-col items-center gap-1 rounded-lg border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
                   {show.rating.average}
                   <span className="text-xs uppercase">Rating</span>
                 </div>
@@ -52,7 +52,7 @@ export default function ShowProfile({ id }: { id: string }) {
 
               <div
                 onClick={() => setIsFavorite(!isFavorite)}
-                className="flex cursor-pointer flex-col items-center gap-1 rounded-lg border border-neutral-300 px-2.5 py-1.5 text-3xl font-light text-neutral-500">
+                className="flex cursor-pointer flex-col items-center gap-1 rounded-lg border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
                 {isFavorite ? (
                   <StarSolid className="h-9 w-9" />
                 ) : (

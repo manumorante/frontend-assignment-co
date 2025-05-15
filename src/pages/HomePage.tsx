@@ -31,7 +31,7 @@ const cards = [
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-full items-center justify-center bg-gray-50">
+    <div className="flex min-h-full items-center justify-center">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="max-w-7xl py-16 text-center">

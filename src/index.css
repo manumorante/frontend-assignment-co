@@ -22,8 +22,14 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  .button.secondary {
+    @apply border border-zinc-200 bg-zinc-50
+    font-medium text-zinc-700
+    hover:border-zinc-300 hover:bg-white hover:text-zinc-800;
+  }
+
   /* Tags */
   .tag {
-    @apply rounded-md border border-neutral-300 px-2 py-0.5 text-sm text-neutral-500;
+    @apply rounded-md border border-zinc-300 px-2 py-0.5 text-sm text-zinc-500;
   }
 }

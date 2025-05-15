@@ -2,10 +2,10 @@ export default function Loading() {
   return (
     <div
       role="status"
-      className="absolute inset-0 z-0 flex items-center justify-center bg-neutral-200/30">
+      className="absolute inset-0 z-0 flex items-center justify-center bg-zinc-200/30">
       <svg
         aria-hidden="true"
-        className="h-8 w-8 animate-spin fill-neutral-300 text-neutral-500"
+        className="h-8 w-8 animate-spin fill-zinc-300 text-zinc-500"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
