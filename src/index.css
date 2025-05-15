@@ -24,6 +24,6 @@
 
   /* Tags */
   .tag {
-    @apply rounded-md border border-neutral-300 px-2 py-1 text-sm text-neutral-500;
+    @apply rounded-md border border-neutral-300 px-2 py-0.5 text-sm text-neutral-500;
   }
 }

@@ -19,16 +19,11 @@ export default function ShowProfile({ id }: { id: string }) {
           <Poster alt={show.name} src={show.image.original} />
         </div>
 
-        <div className="w-full py-3 sm:w-2/3">
+        <div className="w-full p-3 sm:w-2/3">
           <h1 className="my-3 text-xl font-light sm:text-4xl">{show.name}</h1>
 
-          <div className="flex w-full justify-between gap-6">
+          <div className="flex w-full justify-between gap-8">
             <div className="ContentCol space-y-5">
-              {/* Summary */}
-              {show.summary && (
-                <div className="text-lg" dangerouslySetInnerHTML={{ __html: show.summary }} />
-              )}
-
               {/* Genres */}
               {show.genres && show.genres.length > 0 && (
                 <div className="mb-3 flex flex-wrap gap-2">
@@ -38,6 +33,11 @@ export default function ShowProfile({ id }: { id: string }) {
                     </span>
                   ))}
                 </div>
+              )}
+
+              {/* Summary */}
+              {show.summary && (
+                <div className="text-lg" dangerouslySetInnerHTML={{ __html: show.summary }} />
               )}
             </div>
 
