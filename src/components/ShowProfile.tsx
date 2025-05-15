@@ -1,9 +1,7 @@
+import { ErrorMessage, Loading, Poster } from '@/components'
+import { useShow } from '@/hooks/useShow'
 import { StarIcon as StarOutline } from '@heroicons/react/24/outline'
 import { StarIcon as StarSolid } from '@heroicons/react/24/solid'
-
-import { useShow } from '@/hooks/useShow'
-import { ErrorMessage, Loading } from '@/components'
-import Poster from './Poster'
 import { useState } from 'react'
 
 export default function ShowProfile({ id }: { id: string }) {

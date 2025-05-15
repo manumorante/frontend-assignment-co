@@ -1,5 +1,7 @@
 export { default as ErrorMessage } from './ErrorMessage'
 export { default as Loading } from './Loading'
 export { default as Navigation } from './Navigation'
+export { default as Poster } from './Poster'
 export { default as ShowCard } from './ShowCard'
 export { default as ShowList } from './ShowList'
+export { default as ShowProfile } from './ShowProfile'
