@@ -1,3 +1,4 @@
+export { default as EmptyState } from './EmptyState'
 export { default as ErrorMessage } from './ErrorMessage'
 export { default as FavoriteAction } from './FavoriteAction'
 export { default as Footer } from './Footer'

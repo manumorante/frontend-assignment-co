@@ -1,4 +1,4 @@
-import { HomeIcon, FilmIcon, HeartIcon } from '@heroicons/react/24/outline'
+import { HomeIcon, FilmIcon, StarIcon } from '@heroicons/react/24/outline'
 import cx from 'clsx'
 
 import { NavLink } from 'react-router'
@@ -28,7 +28,7 @@ export default function Header() {
           <NavLink
             className={({ isActive }) => (isActive ? cx(styles.item, styles.active) : styles.item)}
             to="/favorites">
-            <HeartIcon className="h-5 w-5" />
+            <StarIcon className="h-5 w-5" />
             Favorites
           </NavLink>
         </nav>
