@@ -7,7 +7,7 @@ export default function ShowFavoritesPage() {
   const hasFavorites = favorites.length > 0
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="main-container py-6">
       {hasFavorites ? (
         <ShowList shows={favorites} />
       ) : (

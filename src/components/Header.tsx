@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-10 bg-zinc-50 shadow-xs">
-      <div className="container mx-auto max-w-5xl">
+      <div className="main-container">
         <nav className="flex gap-8 py-5">
           <NavLink
             className={({ isActive }) => (isActive ? cx(styles.item, styles.active) : styles.item)}
