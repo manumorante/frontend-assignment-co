@@ -8,7 +8,7 @@
 - [x] Store `favorites`
 - [x] Component `ErrorMessage`
 - [x] Component `Loading`
-- [ ] Component `Header`
+- [x] Component `Header`
 - [ ] Component `Footer`
 - [ ] Component `Poster`
 - [ ] Component `ShowCard`
