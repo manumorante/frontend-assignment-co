@@ -16,7 +16,7 @@ export default function ShowProfile({ id }: { id: string }) {
         </div>
 
         <div className="w-full p-3 sm:w-2/3">
-          <h1 className="my-3 text-xl font-light sm:text-4xl">{show.name}</h1>
+          <h1 className="my-3 text-xl font-light text-zinc-950 sm:text-4xl">{show.name}</h1>
 
           <div className="flex w-full justify-between gap-8">
             <div className="ContentCol space-y-5">
