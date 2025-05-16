@@ -40,13 +40,13 @@ export default function ShowProfile({ id }: { id: string }) {
             <div className="AsideCol flex flex-col gap-3">
               {/* Rating */}
               {show.rating?.average && (
-                <div className="flex flex-col items-center gap-1 rounded-lg border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
+                <div className="rounded-base flex flex-col items-center gap-1 border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
                   {show.rating.average}
                   <span className="text-xs uppercase">Rating</span>
                 </div>
               )}
 
-            <FavoriteAction show={show} />
+              <FavoriteAction show={show} />
             </div>
           </div>
         </div>

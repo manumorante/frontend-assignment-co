@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 const styles = {
   // Estilos para los cards que se repiten
   cardWrapper: 'w-64 flex',
-  card: 'rounded-lg border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
+  card: 'rounded-base border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
   cardTitle: 'text-lg font-medium text-zinc-900',
   cardDesc: 'mt-2 text-sm text-zinc-500',
 }
