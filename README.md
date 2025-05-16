@@ -2,24 +2,16 @@
 
 ## Test coverage by priority
 
-### High
-
 - [x] API Layer `api.ts`
 - [x] Hook `useShowList`
 - [x] Hook `useShow`
 - [x] Store `favorites`
-
-### Medium
-
+- [x] Component `ErrorMessage`
+- [ ] Component `Loading`
+- [ ] Component `Header`
+- [ ] Component `Footer`
+- [ ] Component `Poster`
+- [ ] Component `ShowCard`
 - [ ] Page `ShowListPage`
 - [ ] Page `ShowDetailsPage`
 - [ ] Page `ShowFavoritesPage`
-- [ ] Component `ShowCard`
-- [ ] Component `ErrorMessage`
-- [ ] Component `Loading`
-
-### Low
-
-- [ ] Component Navigation `Header`
-- [ ] Component Poster `Poster`
-- [ ] Component Footer `Footer`
