@@ -1,6 +1,8 @@
 import cx from 'clsx'
 import { NavLink } from 'react-router'
 
+// @TODO: Extract nav routes to a separate file for reuse in Header and tests.
+
 export default function Header() {
   const itemClass = (isActive: boolean) => {
     const base =
