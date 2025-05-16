@@ -7,7 +7,7 @@
 - [x] Hook `useShow`
 - [x] Store `favorites`
 - [x] Component `ErrorMessage`
-- [ ] Component `Loading`
+- [x] Component `Loading`
 - [ ] Component `Header`
 - [ ] Component `Footer`
 - [ ] Component `Poster`
