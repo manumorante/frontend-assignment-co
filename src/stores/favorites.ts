@@ -3,38 +3,31 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface FavoritesState {
-  // Data
   favorites: Show[]
-
-  // Actions
   addFavorite: (show: Show) => void
-  removeFavorite: (showId: number | string) => void
-  checkIsFavorite: (showId: number | string) => boolean
+  removeFavorite: (id: Show['id']) => void
+  checkIsFavorite: (id: Show['id']) => boolean
 }
 
 export const useFavoritesStore = create<FavoritesState>()(
   persist(
     (set, get) => ({
-      // Data
       favorites: [],
-
-      // Actions
       addFavorite: (show) => {
-        const { favorites } = get()
-        // Evitar duplicados comprobando si ya existe
-        if (!favorites.some((fav) => fav.id === show.id)) {
-          set((state) => ({ favorites: [...state.favorites, show] }))
-        }
+        set((state) =>
+          state.favorites.some(({ id }) => id === show.id)
+            ? state
+            : { favorites: [...state.favorites, show] },
+        )
       },
-
-      removeFavorite: (showId) => {
-        set((state) => ({
-          favorites: state.favorites.filter((show) => show.id !== showId),
-        }))
+      removeFavorite: (id) => {
+        set((state) => {
+          const favorites = state.favorites.filter((show) => show.id !== id)
+          return favorites.length === state.favorites.length ? state : { favorites }
+        })
       },
-
-      checkIsFavorite: (showId) => {
-        return get().favorites.some((show) => show.id === showId)
+      checkIsFavorite: (id) => {
+        return get().favorites.some((show) => show.id === id)
       },
     }),
     { name: 'favorites-storage' },
