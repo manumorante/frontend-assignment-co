@@ -1,35 +1,88 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-primary: #18181b; /* zinc-900 */
+  --color-secondary: #9f9fa9; /* zinc-400 */
+  --skeleton-gradient: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+}
+
 @layer base {
   body {
-    @apply bg-zinc-200;
+    @apply bg-zinc-200 text-zinc-500;
   }
 }
 
 @layer components {
   /* Buttons */
   .button {
-    @apply inline-flex h-9 px-3 py-1.5
-    cursor-pointer touch-none
-    items-center justify-center gap-2
-    rounded-md
-    bg-zinc-900
-    text-sm font-medium text-white
-    transition-colors outline-none
-    select-none
-    hover:bg-zinc-700 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2
-    disabled:pointer-events-none disabled:opacity-50;
+    /* Layout */
+    @apply inline-flex items-center justify-center gap-2;
+    @apply h-9 px-3 py-1.5;
+
+    /* Typography */
+    @apply text-sm font-medium text-white;
+
+    /* Background & Border */
+    @apply bg-primary rounded-lg;
+
+    /* Effects */
+    @apply transition-colors outline-none;
+
+    /* Interactivity */
+    @apply cursor-pointer touch-none select-none;
+
+    /* State */
+    @apply hover:bg-zinc-700 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
     -webkit-tap-highlight-color: transparent;
   }
 
   .button.secondary {
-    @apply border border-zinc-300 bg-zinc-50
-    font-medium text-zinc-700
-    hover:border-zinc-300 hover:bg-white hover:text-zinc-800;
+    /* Typography */
+    @apply text-secondary font-medium;
+
+    /* Background & Border */
+    @apply border-secondary border bg-zinc-50;
+
+    /* State */
+    @apply hover:border-zinc-300 hover:bg-white hover:text-zinc-800;
   }
 
   /* Tags */
   .tag {
-    @apply rounded-md border border-zinc-300 px-2 py-0.5 text-sm text-zinc-500;
+    /* Box Model */
+    @apply px-2 py-0.5;
+
+    /* Typography */
+    @apply text-secondary text-sm;
+
+    /* Background & Border */
+    @apply border-secondary rounded-lg border;
+  }
+
+  /* Skeleton */
+  .skeleton-pulse {
+    /* Background & Border */
+    background: var(--skeleton-gradient);
+    background-size: 400% 100%;
+    @apply rounded-lg;
+
+    /* Effects */
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .rounded-base {
+    @apply rounded-lg;
+  }
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
