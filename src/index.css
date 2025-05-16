@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-200;
+    @apply bg-zinc-200;
   }
 }
 
@@ -13,23 +13,23 @@
     cursor-pointer touch-none
     items-center justify-center gap-2
     rounded-md
-    bg-slate-900
+    bg-zinc-900
     text-sm font-medium text-white
     transition-colors outline-none
     select-none
-    hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2
+    hover:bg-zinc-700 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2
     disabled:pointer-events-none disabled:opacity-50;
     -webkit-tap-highlight-color: transparent;
   }
 
   .button.secondary {
-    @apply border border-slate-300 bg-slate-50
-    font-medium text-slate-700
-    hover:border-slate-300 hover:bg-white hover:text-slate-800;
+    @apply border border-zinc-300 bg-zinc-50
+    font-medium text-zinc-700
+    hover:border-zinc-300 hover:bg-white hover:text-zinc-800;
   }
 
   /* Tags */
   .tag {
-    @apply rounded-md border border-slate-300 px-2 py-0.5 text-sm text-slate-500;
+    @apply rounded-md border border-zinc-300 px-2 py-0.5 text-sm text-zinc-500;
   }
 }
