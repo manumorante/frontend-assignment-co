@@ -1,12 +1,8 @@
-import { ErrorMessage, Loading, Poster } from '@/components'
+import { ErrorMessage, FavoriteAction, Loading, Poster } from '@/components'
 import { useShow } from '@/hooks/useShow'
-import { StarIcon as StarOutline } from '@heroicons/react/24/outline'
-import { StarIcon as StarSolid } from '@heroicons/react/24/solid'
-import { useState } from 'react'
 
 export default function ShowProfile({ id }: { id: string }) {
   const { show, isLoading, error } = useShow(id)
-  const [isFavorite, setIsFavorite] = useState(false)
 
   if (isLoading) return <Loading />
   if (error) return <ErrorMessage message={error.message} />
@@ -44,23 +40,13 @@ export default function ShowProfile({ id }: { id: string }) {
             <div className="AsideCol flex flex-col gap-3">
               {/* Rating */}
               {show.rating?.average && (
-                <div className="flex flex-col items-center gap-1 rounded-lg border border-slate-300 px-2.5 py-1.5 text-3xl font-light text-slate-500">
+                <div className="flex flex-col items-center gap-1 rounded-lg border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
                   {show.rating.average}
                   <span className="text-xs uppercase">Rating</span>
                 </div>
               )}
 
-              <div
-                onClick={() => setIsFavorite(!isFavorite)}
-                className="flex cursor-pointer flex-col items-center gap-1 rounded-lg border border-slate-300 px-2.5 py-1.5 text-3xl font-light text-slate-500">
-                {isFavorite ? (
-                  <StarSolid className="h-9 w-9" />
-                ) : (
-                  <StarOutline className="h-9 w-9" />
-                )}
-
-                <span className="text-xs uppercase">Favorite</span>
-              </div>
+            <FavoriteAction show={show} />
             </div>
           </div>
         </div>

@@ -5,12 +5,12 @@ import { NavLink } from 'react-router'
 
 export default function Header() {
   const styles = {
-    item: 'flex items-center gap-1.5 text-slate-500',
-    active: 'text-slate-950',
+    item: 'flex items-center gap-1.5 text-zinc-500',
+    active: 'text-zinc-950',
   }
 
   return (
-    <header className="sticky top-0 z-10 bg-slate-50 shadow-xs">
+    <header className="sticky top-0 z-10 bg-zinc-50 shadow-xs">
       <div className="container mx-auto max-w-5xl">
         <nav className="flex gap-8 py-5">
           <NavLink
