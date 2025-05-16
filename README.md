@@ -5,7 +5,7 @@
 ### High
 
 - [x] API Layer `api.ts`
-- [ ] Hook `useShowList`
+- [x] Hook `useShowList`
 - [x] Hook `useShow`
 - [x] Store `favorites`
 
