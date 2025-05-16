@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 // Estilos simplificados - solo los que realmente se reutilizan
 const styles = {
   // Estilos para los cards que se repiten
-  cardWrapper: 'w-64 flex',
+  cardWrapper: 'w-full flex',
   card: 'rounded-base border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
   cardTitle: 'text-lg font-medium text-zinc-900',
   cardDesc: 'mt-2 text-sm text-zinc-500',
@@ -45,7 +45,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="flex max-w-7xl justify-center gap-6 py-12">
+        <div className="grid max-w-7xl grid-cols-1 justify-center gap-6 py-12 sm:grid-cols-2 md:grid-cols-3">
           {cards.map((card, index) => (
             <div key={index} className={styles.cardWrapper}>
               <Link to={card.to} className="flex flex-1">
