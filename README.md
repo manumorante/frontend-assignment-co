@@ -4,22 +4,22 @@
 
 ### High
 
-- [x] API Layer
-- [ ] Show List
-- [ ] Show Details
-- [ ] Favorites
+- [x] API Layer `api.ts`
+- [x] Hook `useShowList`
+- [x] Hook `useShow`
+- [ ] Store `favorites`
 
 ### Medium
 
-- [ ] Show List Hook
-- [ ] Show Card
-- [ ] Favorites Store
-- [ ] Show Hook
-- [ ] Error Message
-- [ ] Loading
+- [ ] Page `ShowListPage`
+- [ ] Page `ShowDetailsPage`
+- [ ] Page `ShowFavoritesPage`
+- [ ] Component `ShowCard`
+- [ ] Component `ErrorMessage`
+- [ ] Component `Loading`
 
 ### Low
 
-- [ ] Navigation
-- [ ] Poster
-- [ ] Footer
+- [ ] Component Navigation `Header`
+- [ ] Component Poster `Poster`
+- [ ] Component Footer `Footer`
