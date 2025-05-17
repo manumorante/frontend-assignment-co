@@ -29,4 +29,15 @@ describe('Poster', () => {
       expect(screen.getByText('No image')).toBeInTheDocument()
     })
   })
+
+  it('has aria-busy true while loading', () => {
+    const { container } = render(<Poster alt="Test Poster" src="/fake-image.jpg" />)
+    const wrapper = container.firstChild as HTMLElement
+    expect(wrapper).toHaveAttribute('aria-busy', 'true')
+  })
+
+  it('applies className', () => {
+    render(<Poster alt="Test Poster" src="/fake-image.jpg" className="test-class" />)
+    expect(document.querySelector('.test-class')).toBeInTheDocument()
+  })
 })
