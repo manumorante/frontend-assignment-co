@@ -1,32 +1,36 @@
-import { useFavoritesStore } from '@/stores/favorites'
 import { mockShow } from '@/test/mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
+import { addFavorite, checkIsFavorite, favoritesSignal, removeFavorite } from './favorites'
 
-describe('useFavoritesStore', () => {
+describe('favorites', () => {
   beforeEach(() => {
-    useFavoritesStore.setState({ favorites: [] })
+    favoritesSignal.value = []
   })
 
-  it('adds a favorite', () => {
-    useFavoritesStore.getState().addFavorite(mockShow)
-    expect(useFavoritesStore.getState().favorites).toContainEqual(mockShow)
+  describe('adding favorites', () => {
+    it('adds a favorite', () => {
+      addFavorite(mockShow)
+      expect(favoritesSignal.value).toContainEqual(mockShow)
+    })
+
+    it('does not add duplicates', () => {
+      addFavorite(mockShow)
+      addFavorite(mockShow)
+      expect(favoritesSignal.value).toHaveLength(1)
+    })
   })
 
-  it('does not add duplicates', () => {
-    useFavoritesStore.getState().addFavorite(mockShow)
-    useFavoritesStore.getState().addFavorite(mockShow)
-    expect(useFavoritesStore.getState().favorites).toHaveLength(1)
-  })
+  describe('managing favorites', () => {
+    it('removes a favorite', () => {
+      addFavorite(mockShow)
+      removeFavorite('1')
+      expect(favoritesSignal.value).toHaveLength(0)
+    })
 
-  it('removes a favorite', () => {
-    useFavoritesStore.getState().addFavorite(mockShow)
-    useFavoritesStore.getState().removeFavorite('1')
-    expect(useFavoritesStore.getState().favorites).toHaveLength(0)
-  })
-
-  it('checkIsFavorite works', () => {
-    expect(useFavoritesStore.getState().checkIsFavorite('1')).toBe(false)
-    useFavoritesStore.getState().addFavorite(mockShow)
-    expect(useFavoritesStore.getState().checkIsFavorite('1')).toBe(true)
+    it('checks if show is favorite', () => {
+      expect(checkIsFavorite('1')).toBe(false)
+      addFavorite(mockShow)
+      expect(checkIsFavorite('1')).toBe(true)
+    })
   })
 })

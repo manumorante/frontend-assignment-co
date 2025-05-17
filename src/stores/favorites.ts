@@ -1,35 +1,18 @@
+import { persistSignal } from '@/lib/persistSignal'
 import { Show } from '@/types'
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
 
-interface FavoritesState {
-  favorites: Show[]
-  addFavorite: (show: Show) => void
-  removeFavorite: (id: Show['id']) => void
-  checkIsFavorite: (id: Show['id']) => boolean
+export const favoritesSignal = persistSignal<Show[]>('favorites-storage', [])
+
+export function addFavorite(show: Show) {
+  if (!favoritesSignal.value.some(({ id }) => id === show.id)) {
+    favoritesSignal.value = [...favoritesSignal.value, show]
+  }
 }
 
-export const useFavoritesStore = create<FavoritesState>()(
-  persist(
-    (set, get) => ({
-      favorites: [],
-      addFavorite: (show) => {
-        set((state) =>
-          state.favorites.some(({ id }) => id === show.id)
-            ? state
-            : { favorites: [...state.favorites, show] },
-        )
-      },
-      removeFavorite: (id) => {
-        set((state) => {
-          const favorites = state.favorites.filter((show) => show.id !== id)
-          return favorites.length === state.favorites.length ? state : { favorites }
-        })
-      },
-      checkIsFavorite: (id) => {
-        return get().favorites.some((show) => show.id === id)
-      },
-    }),
-    { name: 'favorites-storage' },
-  ),
-)
+export function removeFavorite(id: Show['id']) {
+  favoritesSignal.value = favoritesSignal.value.filter((show) => show.id !== id)
+}
+
+export function checkIsFavorite(id: Show['id']): boolean {
+  return favoritesSignal.value.some((show) => show.id === id)
+}
