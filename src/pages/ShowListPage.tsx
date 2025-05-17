@@ -3,13 +3,13 @@ import { Warn, Loading } from '@/components/ui'
 import { useShows } from '@/hooks/useShows'
 
 export default function ShowListPage() {
-  const { shows, isFetching, hasNextPage, fetchNextPage } = useShows({ pageSize: 40 })
+  const { shows, isFetching, hasNextPage, fetchNextPage } = useShows({ pageSize: 42 })
 
   if (isFetching && shows.length === 0) return <Loading />
   if (!isFetching && shows.length === 0) return <Warn message="No shows are currently available." />
 
   return (
-    <div className="ShowListPage">
+    <div className="ShowListPage min-h-screen">
       <ShowList shows={shows} />
 
       {hasNextPage && (
