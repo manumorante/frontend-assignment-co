@@ -17,7 +17,7 @@ export default function ShowCard({ show, priority = false }: { show: Show; prior
       )}>
       <Poster
         alt={show.name}
-        src={show.image.medium}
+        src={show.image?.medium}
         className="md:group-hover:scale-105"
         priority={priority}
       />

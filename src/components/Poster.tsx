@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 interface Props {
   alt: string
-  src: string
+  src?: string
   className?: string
   priority?: boolean
 }
@@ -25,7 +25,7 @@ export default function Poster({ alt, src, className, priority = false }: Props)
         </div>
       ) : (
         <img
-          src={src}
+          src={src || ''}
           alt={alt}
           className="relative h-full w-full object-cover"
           loading={priority ? 'eager' : 'lazy'}
