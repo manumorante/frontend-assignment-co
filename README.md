@@ -8,7 +8,7 @@
 | ✅     | Hook: useShowList | useShowList.tsx       | Pagination/data hook                     |
 | ✅     | Hook: useShow     | useShow.tsx           | Data hook for details                    |
 | ✅     | Store: favorites  | favorites.ts          | Global state, persistence                |
-| ✅     | ErrorMessage      | ErrorMessage.tsx      | UI feedback                              |
+| ✅     | Warn              | Warn.tsx              | UI feedback                              |
 | ✅     | Loading           | Loading.tsx           | UI feedback                              |
 | ✅     | Header            | Header.tsx            | Layout/navigation                        |
 | ✅     | Poster            | Poster.tsx            | Image rendering                          |
