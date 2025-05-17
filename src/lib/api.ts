@@ -1,4 +1,4 @@
-import { Show } from '@/types'
+import { Episode, Show } from '@/types'
 
 const API_BASE_URL = 'https://api.tvmaze.com'
 
@@ -11,4 +11,5 @@ async function fetcher<T>(endpoint: string): Promise<T> {
 export const api = {
   getShows: (page = 0): Promise<Show[]> => fetcher<Show[]>(`/shows?page=${page}`),
   getShow: (id: Show['id']): Promise<Show> => fetcher<Show>(`/shows/${id}`),
+  getEpisodes: (id: Show['id']): Promise<Episode[]> => fetcher<Episode[]>(`/shows/${id}/episodes`),
 }
