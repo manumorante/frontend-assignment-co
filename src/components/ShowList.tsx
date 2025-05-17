@@ -1,9 +1,15 @@
 import { ShowCard } from '@/components'
 import { Show } from '@/types'
+import cx from 'clsx'
 
 export default function ShowList({ shows }: { shows: Show[] }) {
   return (
-    <div className="ShowList grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+    <div
+      className={cx(
+        'ShowList grid w-full',
+        'lg:gap-2',
+        'grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6',
+      )}>
       {shows.map((show) => (
         <ShowCard key={show.id} show={show} />
       ))}

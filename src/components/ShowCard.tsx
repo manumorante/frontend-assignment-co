@@ -1,6 +1,7 @@
 import { Poster } from '@/components'
 import { Show } from '@/types'
 import { Link } from 'react-router'
+import cx from 'clsx'
 
 export default function ShowCard({ show }: { show: Show }) {
   const singleUrl = `/shows/${show.id}`
@@ -8,7 +9,12 @@ export default function ShowCard({ show }: { show: Show }) {
   return (
     <Link
       to={singleUrl}
-      className="ShowCard group rounded-base bg-white/0 p-3 text-zinc-500 transition-colors duration-300 ease-out md:hover:bg-white md:hover:text-black">
+      className={cx(
+        'ShowCard group',
+        'rounded-base p-2 md:p-3',
+        'bg-white/0 text-zinc-500 md:hover:bg-white md:hover:text-black',
+        'transition-colors duration-300 ease-out',
+      )}>
       <Poster alt={show.name} src={show.image.medium} className="md:group-hover:scale-105" />
       <h3 className="p-2 font-light">{show.name}</h3>
     </Link>
