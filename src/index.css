@@ -54,7 +54,7 @@
     @apply px-2 py-0.5;
 
     /* Typography */
-    @apply text-secondary text-sm;
+    @apply text-primary text-sm;
 
     /* Background & Border */
     @apply border-secondary rounded-lg border;
