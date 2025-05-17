@@ -1,4 +1,4 @@
-import { useShowList } from '@/hooks/useShowList'
+import { useShows } from '@/hooks/useShows'
 import { api } from '@/lib/api'
 import { mockShow } from '@/test/mocks'
 import { queryClientWrapper } from '@/test/utils'
@@ -7,9 +7,9 @@ import { describe, expect, it, vi } from 'vitest'
 
 vi.spyOn(api, 'getShows').mockResolvedValue(Array(50).fill(mockShow))
 
-describe('useShowList', () => {
+describe('useShows', () => {
   it('returns paginated shows', async () => {
-    const { result } = renderHook(() => useShowList({ pageSize: 25 }), {
+    const { result } = renderHook(() => useShows({ pageSize: 25 }), {
       wrapper: queryClientWrapper(),
     })
     await waitFor(() => {

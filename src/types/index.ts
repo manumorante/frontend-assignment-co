@@ -1,4 +1,4 @@
-export interface ShowImage {
+export interface Image {
   medium: string
   original: string
 }
@@ -7,11 +7,18 @@ export interface Show {
   id: string
   name: string
   summary: string
-  image: ShowImage
+  image: Image
   genres: string[]
   rating: {
     average: number
   }
 }
 
-export type ShowDraft = Omit<Show, 'id'>
+export interface Episode {
+  id: string
+  name: string
+  season: number
+  number: number
+  image: Image
+  summary: string
+}

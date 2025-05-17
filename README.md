@@ -5,7 +5,7 @@
 | Status | Component/Page    | File                  | Notes                                    |
 | ------ | ----------------- | --------------------- | ---------------------------------------- |
 | ✅     | API Layer         | api.ts                | Core data fetching logic                 |
-| ✅     | Hook: useShowList | useShowList.tsx       | Pagination/data hook                     |
+| ✅     | Hook: useShows    | useShows.tsx          | Pagination/data hook                     |
 | ✅     | Hook: useShow     | useShow.tsx           | Data hook for details                    |
 | ✅     | Store: favorites  | favorites.ts          | Global state, persistence                |
 | ✅     | Warn              | Warn.tsx              | UI feedback                              |

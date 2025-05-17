@@ -2,7 +2,7 @@ import { api } from '@/lib/api'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 
-export function useShowList({ pageSize = 20 }: { pageSize?: number } = {}) {
+export function useShows({ pageSize = 20 }: { pageSize?: number } = {}) {
   const [uiPage, setUiPage] = useState(1)
 
   const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery({
