@@ -7,4 +7,7 @@ export const mockShow: Show = {
     medium: 'test.jpg',
     original: 'test-original.jpg',
   },
+  genres: ['Drama', 'Comedy'],
+  summary: '<b>Summary</b>',
+  rating: { average: 8.5 },
 }
