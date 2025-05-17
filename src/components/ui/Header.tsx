@@ -1,12 +1,10 @@
 import cx from 'clsx'
 import { NavLink } from 'react-router'
 
-// @TODO: Extract nav routes to a separate file for reuse in Header and tests.
-
 export default function Header() {
   const itemClass = (isActive: boolean) => {
     const base =
-      'flex items-center gap-1.5 px-3 py-2 rounded-lg text-zinc-500 transition-colors md:hover:bg-zinc-100 duration-400'
+      'flex items-center gap-1.5 px-2 py-1  rounded-lg text-zinc-500 transition-colors md:hover:bg-zinc-100 duration-400'
     const active = 'bg-zinc-100 text-zinc-950'
     return isActive ? cx(base, active) : base
   }
@@ -14,8 +12,8 @@ export default function Header() {
   return (
     <header
       className={cx(
-        'sticky top-4 z-30 mx-auto',
-        'mb-4 max-w-2xl px-2 sm:px-4',
+        'sticky top-6 z-30 mx-auto',
+        'mb-6 max-w-2xl px-2 sm:px-4',
         'rounded-2xl border border-transparent',
         'bg-white shadow-lg',
       )}>

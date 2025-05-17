@@ -13,7 +13,7 @@ export default function ShowProfile({ id }: { id: string }) {
 
   return (
     <div className="w-full p-1 sm:p-0">
-      <div className="relative flex flex-col sm:flex-row sm:gap-6">
+      <div className="relative flex flex-col gap-6 sm:flex-row">
         <div className="flex w-full max-w-full flex-shrink-0 flex-grow-0 items-start sm:w-1/3 sm:max-w-none">
           <div className="w-3/4 sm:w-full">
             <Poster alt={show.name} src={show.image?.original} />
