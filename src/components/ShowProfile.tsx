@@ -1,6 +1,7 @@
 import { FavoriteAction, Poster } from '@/components'
 import { ErrorMessage, Loading } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
+import { Show } from '@/types'
 
 export default function ShowProfile({ id }: { id: string }) {
   const { show, isLoading, error } = useShow(id)
@@ -18,40 +19,43 @@ export default function ShowProfile({ id }: { id: string }) {
 
         <div className="w-full p-3 sm:w-2/3">
           <h1 className="my-3 text-xl font-light text-zinc-950 sm:text-4xl">{show.name}</h1>
-
           <div className="flex w-full justify-between gap-8">
             <div className="ContentCol space-y-5">
-              {/* Genres */}
-              {show.genres && show.genres.length > 0 && (
-                <div className="mb-3 flex flex-wrap gap-2">
-                  {show.genres.map((genre) => (
-                    <span key={genre} className="tag">
-                      {genre}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {/* Summary */}
+              <Genres genres={show.genres} />
               {show.summary && (
                 <div className="text-lg" dangerouslySetInnerHTML={{ __html: show.summary }} />
               )}
             </div>
-
             <div className="AsideCol flex flex-col gap-3">
-              {/* Rating */}
-              {show.rating?.average && (
-                <div className="rounded-base flex flex-col items-center gap-1 border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
-                  {show.rating.average}
-                  <span className="text-xs uppercase">Rating</span>
-                </div>
-              )}
-
+              <Rating rating={show.rating} />
               <FavoriteAction show={show} />
             </div>
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+function Genres({ genres }: { genres: Show['genres'] }) {
+  if (genres.length === 0) return null
+  return (
+    <div className="mb-3 flex flex-wrap gap-2">
+      {genres.map((genre) => (
+        <span key={genre} className="tag">
+          {genre}
+        </span>
+      ))}
+    </div>
+  )
+}
+
+function Rating({ rating }: { rating: Show['rating'] }) {
+  if (!rating.average) return null
+  return (
+    <div className="rounded-base flex flex-col items-center gap-1 border border-zinc-300 px-2.5 py-1.5 text-3xl font-light text-zinc-500">
+      {rating.average}
+      <span className="text-xs uppercase">Rating</span>
     </div>
   )
 }
