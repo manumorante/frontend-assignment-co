@@ -1,14 +1,13 @@
 import { EmptyState, ShowList } from '@/components'
-import { useFavoritesStore } from '@/stores/favorites'
+import { useFavoriteSignal } from '@/hooks/useFavoriteSignal'
 import { StarIcon } from '@heroicons/react/24/outline'
 
 export default function ShowFavoritesPage() {
-  const favorites = useFavoritesStore((state) => state.favorites)
-  const hasFavorites = favorites.length > 0
+  const { favorites } = useFavoriteSignal()
 
   return (
     <>
-      {hasFavorites ? (
+      {favorites.length > 0 ? (
         <ShowList shows={favorites} />
       ) : (
         <EmptyState
