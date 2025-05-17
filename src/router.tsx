@@ -1,5 +1,4 @@
-import { Loading } from '@/components'
-import Layout from '@/pages/Layout'
+import { Layout, Loading } from '@/components/ui'
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 

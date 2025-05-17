@@ -11,8 +11,8 @@
 - [x] Component `Header`
 - [x] Component `Poster`
 - [x] Component `FavoriteAction`
+- [x] Page `ShowFavoritesPage`
 - [ ] Component `Footer`
 - [ ] Component `ShowCard`
 - [ ] Page `ShowListPage`
 - [ ] Page `ShowDetailsPage`
-- [ ] Page `ShowFavoritesPage`

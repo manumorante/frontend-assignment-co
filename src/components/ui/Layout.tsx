@@ -1,4 +1,4 @@
-import { Header, Footer } from '@/components'
+import { Footer, Header } from '@/components/ui'
 import { Outlet } from 'react-router'
 
 export default function Layout() {

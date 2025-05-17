@@ -1,4 +1,4 @@
-import { Loading } from '@/components'
+import { Loading } from '@/components/ui'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 

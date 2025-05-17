@@ -1,4 +1,5 @@
-import { ErrorMessage, FavoriteAction, Loading, Poster } from '@/components'
+import { FavoriteAction, Poster } from '@/components'
+import { ErrorMessage, Loading } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
 
 export default function ShowProfile({ id }: { id: string }) {

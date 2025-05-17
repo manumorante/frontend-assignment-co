@@ -1,4 +1,4 @@
-import { ErrorMessage } from '@/components'
+import { ErrorMessage } from '@/components/ui'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 

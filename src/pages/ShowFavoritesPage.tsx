@@ -1,4 +1,5 @@
-import { EmptyState, ShowList } from '@/components'
+import { ShowList } from '@/components'
+import { EmptyState } from '@/components/ui'
 import { useFavoriteSignal } from '@/hooks/useFavoriteSignal'
 import { StarIcon } from '@heroicons/react/24/outline'
 

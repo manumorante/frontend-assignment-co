@@ -1,4 +1,5 @@
-import { ErrorMessage, Loading, ShowList } from '@/components'
+import { ShowList } from '@/components'
+import { ErrorMessage, Loading } from '@/components/ui'
 import { useShowList } from '@/hooks/useShowList'
 
 export default function ShowListPage() {
