@@ -32,7 +32,7 @@
     @apply cursor-pointer touch-none select-none;
 
     /* State */
-    @apply hover:bg-zinc-700 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2;
+    @apply focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hover:bg-zinc-700;
     @apply disabled:pointer-events-none disabled:opacity-50;
     -webkit-tap-highlight-color: transparent;
   }
@@ -45,7 +45,7 @@
     @apply border-secondary border bg-zinc-50;
 
     /* State */
-    @apply hover:border-zinc-300 hover:bg-white hover:text-zinc-800;
+    @apply md:hover:border-zinc-300 md:hover:bg-white md:hover:text-zinc-800;
   }
 
   /* Tags */

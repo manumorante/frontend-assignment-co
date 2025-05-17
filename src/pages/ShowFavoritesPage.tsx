@@ -7,7 +7,7 @@ export default function ShowFavoritesPage() {
   const hasFavorites = favorites.length > 0
 
   return (
-    <div className="main-container py-6">
+    <>
       {hasFavorites ? (
         <ShowList shows={favorites} />
       ) : (
@@ -17,6 +17,6 @@ export default function ShowFavoritesPage() {
           actionTo="/shows"
         />
       )}
-    </div>
+    </>
   )
 }

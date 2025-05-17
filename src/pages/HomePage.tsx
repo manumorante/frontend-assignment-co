@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 const styles = {
   // Estilos para los cards que se repiten
   cardWrapper: 'w-full flex',
-  card: 'rounded-base border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
+  card: 'rounded-base border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 md:hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
   cardTitle: 'text-lg font-medium text-zinc-900',
   cardDesc: 'mt-2 text-sm text-zinc-500',
 }
@@ -34,7 +34,7 @@ export default function HomePage() {
     <div className="flex min-h-full items-center justify-center">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="max-w-7xl py-16 text-center">
+        <div className="max-w-7xl pt-8 text-center sm:py-16">
           <h1 className="text-4xl tracking-tight sm:text-5xl md:text-6xl">
             <span className="block font-bold text-zinc-800">Correcto</span>
             <span className="block font-light text-zinc-600">Frontend Assingment</span>
@@ -45,7 +45,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid max-w-7xl grid-cols-1 justify-center gap-6 py-12 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid max-w-7xl grid-cols-1 justify-center gap-4 py-12 sm:grid-cols-2 sm:gap-6 md:grid-cols-3">
           {cards.map((card, index) => (
             <div key={index} className={styles.cardWrapper}>
               <Link to={card.to} className="flex flex-1">

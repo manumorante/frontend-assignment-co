@@ -6,7 +6,7 @@ import { NavLink } from 'react-router'
 export default function Header() {
   const itemClass = (isActive: boolean) => {
     const base =
-      'flex items-center gap-1.5 px-3 py-2 rounded-lg text-zinc-500 transition-colors hover:bg-zinc-100 duration-400'
+      'flex items-center gap-1.5 px-3 py-2 rounded-lg text-zinc-500 transition-colors md:hover:bg-zinc-100 duration-400'
     const active = 'bg-zinc-100 text-zinc-950'
     return isActive ? cx(base, active) : base
   }
