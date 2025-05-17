@@ -1,11 +1,17 @@
 import { useState } from 'react'
 
-export default function Poster({ alt, src }: { alt: string; src: string }) {
+interface Props {
+  alt: string
+  src: string
+  className?: string
+}
+
+export default function Poster({ alt, src, className }: Props) {
   const [status, setStatus] = useState<'loading' | 'error' | 'loaded'>('loading')
 
   return (
     <div
-      className="rounded-base relative aspect-[17/25] w-full overflow-hidden shadow-md"
+      className={`rounded-base relative aspect-[17/25] w-full overflow-hidden shadow-md transition-transform duration-300 ease-out ${className}`}
       aria-busy={status === 'loading'}>
       {status === 'loading' && (
         <div className="skeleton-pulse absolute inset-0 z-10" role="status">
