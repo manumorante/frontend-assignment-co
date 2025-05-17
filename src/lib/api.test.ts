@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest'
-import { api } from './api'
+import { api } from '@/lib/api'
+import { describe, expect, it, vi } from 'vitest'
 
 describe('api', () => {
   describe('getShows', () => {

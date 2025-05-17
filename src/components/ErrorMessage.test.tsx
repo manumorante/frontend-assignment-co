@@ -1,6 +1,6 @@
+import { ErrorMessage } from '@/components'
 import { render, screen } from '@testing-library/react'
-import ErrorMessage from './ErrorMessage'
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 describe('ErrorMessage', () => {
   it('muestra el mensaje de error correctamente', () => {

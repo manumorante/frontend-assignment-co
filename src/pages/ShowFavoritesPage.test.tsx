@@ -1,9 +1,9 @@
+import ShowFavoritesPage from '@/pages/ShowFavoritesPage'
 import { favoritesSignal } from '@/stores/favorites'
 import { mockShow } from '@/test/mocks'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { beforeEach, describe, expect, it } from 'vitest'
-import ShowFavoritesPage from './ShowFavoritesPage'
 
 describe('ShowFavoritesPage', () => {
   beforeEach(() => {

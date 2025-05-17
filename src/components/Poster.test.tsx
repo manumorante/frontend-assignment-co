@@ -1,6 +1,6 @@
+import { Poster } from '@/components'
 import { render, screen, waitFor } from '@testing-library/react'
-import Poster from './Poster'
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 describe('Poster', () => {
   it('shows skeleton while loading', () => {

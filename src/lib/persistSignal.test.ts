@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { persistSignal } from './persistSignal'
+import { persistSignal } from '@/lib/persistSignal'
+import { describe, expect, it } from 'vitest'
 
 describe('persistSignal', () => {
   it('should create and update signal value', () => {

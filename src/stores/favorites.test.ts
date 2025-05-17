@@ -1,6 +1,6 @@
+import { addFavorite, checkIsFavorite, favoritesSignal, removeFavorite } from '@/stores/favorites'
 import { mockShow } from '@/test/mocks'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { addFavorite, checkIsFavorite, favoritesSignal, removeFavorite } from './favorites'
 
 describe('favorites', () => {
   beforeEach(() => {

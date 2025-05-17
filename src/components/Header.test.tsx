@@ -1,7 +1,7 @@
+import { Header } from '@/components'
 import { render, screen } from '@testing-library/react'
-import Header from './Header'
 import { MemoryRouter } from 'react-router'
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 // @TODO: Extract nav routes to a separate file for reuse in Header and tests.
 
