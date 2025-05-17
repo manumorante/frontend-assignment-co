@@ -2,6 +2,7 @@ import { FavoriteAction, Poster } from '@/components'
 import { ErrorMessage, Loading } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
 import { Show } from '@/types'
+import parse from 'html-react-parser'
 
 export default function ShowProfile({ id }: { id: string }) {
   const { show, isLoading, error } = useShow(id)
@@ -19,13 +20,13 @@ export default function ShowProfile({ id }: { id: string }) {
 
         <div className="w-full p-3 sm:w-2/3">
           <h1 className="my-3 text-xl font-light text-zinc-950 sm:text-4xl">{show.name}</h1>
+
           <div className="flex w-full justify-between gap-8">
             <div className="ContentCol space-y-5">
               <Genres genres={show.genres} />
-              {show.summary && (
-                <div className="text-lg" dangerouslySetInnerHTML={{ __html: show.summary }} />
-              )}
+              {show.summary && <div className="text-lg">{parse(show.summary)}</div>}
             </div>
+
             <div className="AsideCol flex flex-col gap-3">
               <Rating rating={show.rating} />
               <FavoriteAction show={show} />
