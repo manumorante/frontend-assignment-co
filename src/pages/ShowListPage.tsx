@@ -11,9 +11,6 @@ export default function ShowListPage() {
 
   return (
     <div className="ShowListPage">
-      <div className="fixed top-3 left-3 z-50 rounded-lg bg-white p-3">
-        {`Mostrando ${shows.length} shows`}
-      </div>
       <ShowList shows={shows} />
 
       {hasNextPage && (
