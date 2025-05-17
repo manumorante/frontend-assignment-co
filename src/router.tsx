@@ -14,10 +14,7 @@ export default function AppRouter() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<LazyRoute component={HomePage} />} />
-            <Route
-              path="shows"
-              element={<Route index element={<LazyRoute component={ShowListPage} />} />}
-            />
+            <Route path="shows" element={<LazyRoute component={ShowListPage} />} />
             <Route path="shows/:id" element={<LazyRoute component={ShowDetailsPage} />} />
             <Route path="favorites" element={<LazyRoute component={ShowFavoritesPage} />} />
           </Route>
