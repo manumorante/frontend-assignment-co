@@ -1,5 +1,5 @@
 import { Layout, Loading } from '@/components/ui'
-import { lazy, Suspense } from 'react'
+import { ComponentType, lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
 const HomePage = lazy(() => import('@/pages/HomePage'))
@@ -13,13 +13,22 @@ export default function AppRouter() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="shows" element={<ShowListPage />} />
-            <Route path="shows/:id" element={<ShowDetailsPage />} />
-            <Route path="favorites" element={<ShowFavoritesPage />} />
+            <Route index element={<LazyRoute component={HomePage} />} />
+            <Route
+              path="shows"
+              element={<Route index element={<LazyRoute component={ShowListPage} />} />}
+            />
+            <Route path="shows/:id" element={<LazyRoute component={ShowDetailsPage} />} />
+            <Route path="favorites" element={<LazyRoute component={ShowFavoritesPage} />} />
           </Route>
         </Routes>
       </BrowserRouter>
     </Suspense>
   )
 }
+
+const LazyRoute = ({ component: Component }: { component: ComponentType }) => (
+  <Suspense fallback={<Loading />}>
+    <Component />
+  </Suspense>
+)
