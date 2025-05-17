@@ -2,16 +2,13 @@ import { Show } from '@/types'
 
 const API_BASE_URL = 'https://api.tvmaze.com'
 
-export const api = {
-  getShows: async (page = 0): Promise<Show[]> => {
-    const response = await fetch(`${API_BASE_URL}/shows?page=${page}`)
-    if (!response.ok) throw new Error('Failed to fetch shows')
-    return response.json()
-  },
+async function fetcher<T>(endpoint: string): Promise<T> {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`)
+  if (!response.ok) throw new Error('fetcher() - Failed to fetch ' + endpoint)
+  return response.json() as Promise<T>
+}
 
-  getShow: async (id: Show['id']): Promise<Show> => {
-    const response = await fetch(`${API_BASE_URL}/shows/${id}`)
-    if (!response.ok) throw new Error('Failed to fetch show')
-    return response.json()
-  },
+export const api = {
+  getShows: (page = 0): Promise<Show[]> => fetcher<Show[]>(`/shows?page=${page}`),
+  getShow: (id: Show['id']): Promise<Show> => fetcher<Show>(`/shows/${id}`),
 }
