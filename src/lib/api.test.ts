@@ -1,23 +1,22 @@
 import { api } from '@/lib/api'
+import { mockShow, mockShows } from '@/test/mocks'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('api', () => {
   describe('getShows', () => {
-    it('fetches shows', async () => {
-      const mockShows = [{ id: 1, name: 'Test Show' }]
+    it('fetches shows with specific page', async () => {
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockShows),
       })
 
-      const result = await api.getShows()
+      const result = await api.getShows(2)
       expect(result).toEqual(mockShows)
     })
   })
 
   describe('getShow', () => {
     it('fetches a show', async () => {
-      const mockShow = { id: 1, name: 'Test Show' }
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockShow),

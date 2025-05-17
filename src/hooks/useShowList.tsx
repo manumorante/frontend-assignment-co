@@ -13,7 +13,7 @@ export function useShowList() {
     error,
   } = useQuery({
     queryKey: ['shows'],
-    queryFn: api.getShows,
+    queryFn: () => api.getShows(),
   })
 
   // shows current page

@@ -11,3 +11,5 @@ export const mockShow: Show = {
   summary: '<b>Summary</b>',
   rating: { average: 8.5 },
 }
+
+export const mockShows: Show[] = [mockShow]
