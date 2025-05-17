@@ -1,3 +1,4 @@
+export { default as EpisodeList } from './EpisodeList'
 export { default as FavoriteAction } from './FavoriteAction'
 export { default as Poster } from './Poster'
 export { default as ShowCard } from './ShowCard'
