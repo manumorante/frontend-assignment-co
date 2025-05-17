@@ -10,6 +10,7 @@
 - [x] Component `Loading`
 - [x] Component `Header`
 - [x] Component `Poster`
+- [x] Component `FavoriteAction`
 - [ ] Component `Footer`
 - [ ] Component `ShowCard`
 - [ ] Page `ShowListPage`
