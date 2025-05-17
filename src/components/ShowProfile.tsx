@@ -1,5 +1,5 @@
 import { FavoriteAction, Poster } from '@/components'
-import { ErrorMessage, Loading } from '@/components/ui'
+import { Warn, Loading } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
 import { Show } from '@/types'
 import parse from 'html-react-parser'
@@ -8,8 +8,8 @@ export default function ShowProfile({ id }: { id: string }) {
   const { show, isLoading, error } = useShow(id)
 
   if (isLoading) return <Loading />
-  if (error) return <ErrorMessage message={error.message} />
-  if (!show) return <ErrorMessage message="Show not found" />
+  if (error) return <Warn message={error.message} />
+  if (!show) return <Warn message="Show not found" />
 
   return (
     <div className="w-full p-4 sm:p-0">

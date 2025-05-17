@@ -5,7 +5,7 @@ import { useState } from 'react'
 export function useShowList({ pageSize = 20 }: { pageSize?: number } = {}) {
   const [uiPage, setUiPage] = useState(1)
 
-  const { data, fetchNextPage, hasNextPage, isFetching, error } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery({
     queryKey: ['shows'],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
@@ -41,7 +41,6 @@ export function useShowList({ pageSize = 20 }: { pageSize?: number } = {}) {
   return {
     shows: data?.shows ?? [],
     isFetching,
-    error,
     hasNextPage: hasMoreLocal || hasNextPage,
     fetchNextPage: loadMore,
   }

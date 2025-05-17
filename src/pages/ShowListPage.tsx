@@ -1,13 +1,12 @@
 import { ShowList } from '@/components'
-import { ErrorMessage, Loading } from '@/components/ui'
+import { Warn, Loading } from '@/components/ui'
 import { useShowList } from '@/hooks/useShowList'
 
 export default function ShowListPage() {
-  const { shows, isFetching, error, hasNextPage, fetchNextPage } = useShowList()
+  const { shows, isFetching, hasNextPage, fetchNextPage } = useShowList({ pageSize: 40 })
 
   if (isFetching && shows.length === 0) return <Loading />
-  if (error) return <ErrorMessage message={error.message} />
-  if (shows.length === 0) return <ErrorMessage message="There are no shows available to display." />
+  if (!isFetching && shows.length === 0) return <Warn message="No shows are currently available." />
 
   return (
     <div className="ShowListPage">
