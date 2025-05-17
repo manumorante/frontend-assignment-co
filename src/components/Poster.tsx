@@ -4,9 +4,10 @@ interface Props {
   alt: string
   src: string
   className?: string
+  priority?: boolean
 }
 
-export default function Poster({ alt, src, className }: Props) {
+export default function Poster({ alt, src, className, priority = false }: Props) {
   const [status, setStatus] = useState<'loading' | 'error' | 'loaded'>('loading')
 
   return (
@@ -27,6 +28,7 @@ export default function Poster({ alt, src, className }: Props) {
           src={src}
           alt={alt}
           className="relative h-full w-full object-cover"
+          loading={priority ? 'eager' : 'lazy'}
           onLoad={() => setStatus('loaded')}
           onError={() => setStatus('error')}
         />
