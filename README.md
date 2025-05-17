@@ -9,8 +9,8 @@
 - [x] Component `ErrorMessage`
 - [x] Component `Loading`
 - [x] Component `Header`
+- [x] Component `Poster`
 - [ ] Component `Footer`
-- [ ] Component `Poster`
 - [ ] Component `ShowCard`
 - [ ] Page `ShowListPage`
 - [ ] Page `ShowDetailsPage`

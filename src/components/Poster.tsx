@@ -7,7 +7,11 @@ export default function Poster({ alt, src }: { alt: string; src: string }) {
     <div
       className="rounded-base relative aspect-[17/25] w-full overflow-hidden shadow-md"
       aria-busy={status === 'loading'}>
-      {status === 'loading' && <div className="skeleton-pulse absolute inset-0 z-10" />}
+      {status === 'loading' && (
+        <div className="skeleton-pulse absolute inset-0 z-10" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      )}
       {status === 'error' ? (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-200 text-sm text-zinc-400">
           {alt || 'No image'}
