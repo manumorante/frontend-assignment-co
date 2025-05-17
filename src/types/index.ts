@@ -22,3 +22,8 @@ export interface Episode {
   image: Image
   summary: string
 }
+
+export interface Season {
+  season: number
+  episodes: Episode[]
+}

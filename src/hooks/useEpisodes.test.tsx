@@ -13,7 +13,9 @@ describe('useEpisodes', () => {
     })
     await waitFor(() => {
       expect(result.current.isFetching).toBe(false)
-      expect(result.current.episodes).toEqual([mockEpisode])
+      expect(result.current.seasons).toEqual([
+        { season: mockEpisode.season, episodes: [mockEpisode] },
+      ])
     })
   })
 
@@ -23,7 +25,7 @@ describe('useEpisodes', () => {
       wrapper: queryClientWrapper(),
     })
     await waitFor(() => {
-      expect(result.current.episodes).toEqual([])
+      expect(result.current.seasons).toEqual([])
     })
   })
 })
