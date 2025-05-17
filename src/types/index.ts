@@ -6,10 +6,10 @@ export interface ShowImage {
 export interface Show {
   id: string
   name: string
-  summary?: string
+  summary: string
   image: ShowImage
-  genres?: string[]
-  rating?: {
+  genres: string[]
+  rating: {
     average: number
   }
 }
