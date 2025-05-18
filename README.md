@@ -25,7 +25,7 @@
 
 - **Custom Hooks for Data Operations**: Each data operation has its own hook to improve reusability and management. I chose not to use `useEffect` because I prefer other methods.
 
-- **Signals**: Used to manage the state of favorites across the show listing, its detail page, and within the action component for adding or removing favorites.
+- **Signals**: Used to manage the state of favorites across the show listing, detail page, and within the action component for adding or removing favorites.
 
 - **Local Storage**: Created a function to persist signals in the browser, effectively replacing the persistence feature of Zustand, for example.
 
@@ -33,15 +33,13 @@
 
 - **Skeleton Screens**: The most relevant components display a skeleton while loading data. I absolutely love using this approach.
 
-- **Responsive Design**: Comfortable use on mobile devices by applying best practices like avoiding the 300ms delay on buttons and preventing zoom when focusing on inputs.
+- **Responsive Design**: Ensured comfortable use on mobile devices by applying best practices, such as avoiding the 300ms delay on buttons and preventing zoom when focusing on inputs.
 
-- **Tailwind CSS**: Initially, I was skeptical about _Tailwind_, but it has proven versatile and effective. I love it for the control it offers, though I understand companies may use other systems like CSS with BEM or CSS Modules. Even if it's not being used, it can still be utilized for quick prototyping and advancing projects. It's not just another _Bootstrap_!
+- **Tailwind CSS**: Initially, I was skeptical about _Tailwind_, but it has proven to be versatile and effective. I love it for the control it offers, though I understand companies may use other systems like CSS with BEM or CSS Modules. Even if it's not being used, it can still be utilized for quick prototyping and advancing projects. It's not just another _Bootstrap_!
 
 - **Prettier**: Configured to my favorite style :) An indispensable tool, especially for team collaboration, with the Tailwind CSS plugin enhancing readability through consistent class order.
 
-- **Avoiding Shancn/UI**: I prefer not to use such libraries in companies because they require constant oversight and don't scale well. Building a custom design system ensures better consistency and control in components.
-
-- **Testing**: I test what matters—core logic and flows—with Vitest and Testing Library. Not aiming for 100% coverage, just real confidence. Presentational components: optional.
+- **Avoiding Shancn/UI**: I prefer not to use such libraries in companies because they require constant oversight and don't scale well. Building a custom design system ensures better consistency and control over components.
 
 ## Notes
 
@@ -49,9 +47,9 @@
 
 ## Testing Approach
 
-I prioritize testing the core logic and flows to build confidence in the app. This means focusing on the essentials, like checking that **duplicate shows aren't added**, which is crucial for making informed product decisions.
+I prioritize testing the core logic and flows to build confidence in the app. This means focusing on the essentials, like ensuring that **duplicate shows aren't added**, which is crucial for making informed product decisions.
 
-I start with components or hooks that interact with the API, especially those using **React Query**, because they are critical to the app's function. Then, I move on to those managing the **global state**, ensuring they perform well. Finally, I address the **dumb components**, where testing can be more flexible.
+I start with components or hooks that interact with the API, especially those using **React Query**, because they are critical to the app's functionality. Then, I move on to those managing the **global state**, ensuring they perform well. Finally, I address the **dumb components**, where testing can be more flexible.
 
 While testing some presentational components is optional, I find it valuable to use **Cypress** for lightweight end-to-end tests. This ensures user flows work smoothly in real environments, and Cypress has been a reliable tool that has saved us from many issues.
 
