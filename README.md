@@ -75,3 +75,17 @@ While testing some presentational components is optional, I find it valuable to 
 | [ ] | Component: List            | Optional: presentational only            |
 | [ ] | Component: Empty State     | Optional: presentational only            |
 | [ ] | Component: Layout          | Optional: presentational only            |
+
+## Things I would do with more time
+
+- **Priorities with the Product Team**: The first and most important step is always to meet and, after establishing the real needs of the product, plan the next steps. _Sometimes, it’s necessary to address what’s urgent rather than what’s important_.
+
+- **Search**: Add a show search feature, leveraging signals to retain the `query` across components.
+
+- **Pagination**: Retain the page the user was on, and switch to conventional pagination if _Product Team_ considers it a useful feature for users. _Instagram_ would never give up its infinite scroll, but for a documentation website, for example, classic pagination is usually more appropriate.
+
+- **Separate Requests + Skeleton:** Fetch episodes separately (within the component) and display a skeleton while loading. This lightens the page load and looks great.
+
+- **Test Coverage**: There’s no login or sensitive features; otherwise, I would suggest using _Cypress_. (Product decision)
+
+- **Micro-animations**: They are great and, when well executed, add a sense of quality. Once again, it depends on the product team.
