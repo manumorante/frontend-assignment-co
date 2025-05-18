@@ -21,25 +21,59 @@
 - Prettier
 - Prettier Tailwind plugin
 
-## Test coverage by priority
+## Key Decisions
 
-|     | Component/Page    | File                  | Notes                                    |
-| --- | ----------------- | --------------------- | ---------------------------------------- |
-| [x] | API Layer         | api.ts                | Core data fetching logic                 |
-| [x] | Hook: useShows    | useShows.tsx          | Pagination/data hook                     |
-| [x] | Hook: useShow     | useShow.tsx           | Data hook for details                    |
-| [x] | Store: favorites  | favorites.ts          | Global state, persistence                |
-| [x] | Warn              | Warn.tsx              | UI feedback                              |
-| [x] | Loading           | Loading.tsx           | UI feedback                              |
-| [x] | Header            | Header.tsx            | Layout/navigation                        |
-| [x] | Poster            | Poster.tsx            | Image rendering                          |
-| [x] | FavoriteAction    | FavoriteAction.tsx    | User interaction, state                  |
-| [x] | ShowFavoritesPage | ShowFavoritesPage.tsx | Favorites page logic                     |
-| [x] | ShowDetailsPage   | ShowDetailsPage.tsx   | Placeholder, needs real test             |
-| [ ] | ShowListPage      | ShowListPage.tsx      | Recommended: has logic, should be tested |
-| [ ] | HomePage          | HomePage.tsx          | Recommended: test if logic is added      |
-| [ ] | Footer            | Footer.tsx            | Optional: presentational only            |
-| [ ] | ShowCard          | ShowCard.tsx          | Optional: presentational only            |
-| [ ] | ShowList          | ShowList.tsx          | Optional: presentational only            |
-| [ ] | EmptyState        | EmptyState.tsx        | Optional: presentational only            |
-| [ ] | Layout            | Layout.tsx            | Optional: presentational only            |
+- **Custom Hooks for Data Operations**: Each data operation has its own hook to improve reusability and management. I chose not to use `useEffect` because I prefer other methods.
+
+- **Signals**: Used to manage the state of favorites across the show listing, its detail page, and within the action component for adding or removing favorites.
+
+- **Local Storage**: Created a function to persist signals in the browser, effectively replacing the persistence feature of Zustand, for example.
+
+- **Lazy Loading**: Pages are loaded on demand using `React.lazy`, optimizing performance directly from the router.
+
+- **Skeleton Screens**: The most relevant components display a skeleton while loading data. I absolutely love using this approach.
+
+- **Responsive Design**: Comfortable use on mobile devices by applying best practices like avoiding the 300ms delay on buttons and preventing zoom when focusing on inputs.
+
+- **Tailwind CSS**: Initially, I was skeptical about _Tailwind_, but it has proven versatile and effective. I love it for the control it offers, though I understand companies may use other systems like CSS with BEM or CSS Modules. Even if it's not being used, it can still be utilized for quick prototyping and advancing projects. It's not just another _Bootstrap_!
+
+- **Prettier**: Configured to my favorite style :) An indispensable tool, especially for team collaboration, with the Tailwind CSS plugin enhancing readability through consistent class order.
+
+- **Avoiding Shancn/UI**: I prefer not to use such libraries in companies because they require constant oversight and don't scale well. Building a custom design system ensures better consistency and control in components.
+
+- **Testing**: I test what matters—core logic and flows—with Vitest and Testing Library. Not aiming for 100% coverage, just real confidence. Presentational components: optional.
+
+## Notes
+
+- **Auto Barrel Files**: I usually work with an extension that creates and maintains `index.ts` files with all exports. It's very convenient for development and allows for cleaner components.
+
+## Testing Approach
+
+I prioritize testing the core logic and flows to build confidence in the app. This means focusing on the essentials, like checking that **duplicate shows aren't added**, which is crucial for making informed product decisions.
+
+I start with components or hooks that interact with the API, especially those using **React Query**, because they are critical to the app's function. Then, I move on to those managing the **global state**, ensuring they perform well. Finally, I address the **dumb components**, where testing can be more flexible.
+
+While testing some presentational components is optional, I find it valuable to use **Cypress** for lightweight end-to-end tests. This ensures user flows work smoothly in real environments, and Cypress has been a reliable tool that has saved us from many issues.
+
+### Test Coverage by Priority
+
+|     | Component/Page             | Description                              |
+| --- | -------------------------- | ---------------------------------------- |
+| [x] | API Layer                  | Core data fetching logic                 |
+| [x] | Hook: useShows             | Pagination/data hook                     |
+| [x] | Hook: useShow              | Data hook for details                    |
+| [x] | Store: Favorites           | Global state, persistence                |
+| [x] | Component: Warn            | UI feedback                              |
+| [x] | Component: Loading         | UI feedback                              |
+| [x] | Component: Header          | Layout/navigation                        |
+| [x] | Component: Poster          | Image rendering                          |
+| [x] | Component: Favorite Action | User interaction, state                  |
+| [x] | Page: Favorites            | Favorites page logic                     |
+| [x] | Page: Details              | Placeholder, needs real test             |
+| [ ] | Page: List                 | Recommended: has logic, should be tested |
+| [ ] | Page: Home                 | Recommended: test if logic is added      |
+| [ ] | Component: Footer          | Optional: presentational only            |
+| [ ] | Component: Card            | Optional: presentational only            |
+| [ ] | Component: List            | Optional: presentational only            |
+| [ ] | Component: Empty State     | Optional: presentational only            |
+| [ ] | Component: Layout          | Optional: presentational only            |
