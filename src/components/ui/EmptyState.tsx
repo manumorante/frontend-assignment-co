@@ -9,7 +9,9 @@ interface EmptyStateProps {
 
 export default function EmptyState({ icon, title, actionTo }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 py-12 text-center">
+    <div
+      className="flex min-h-[70vh] flex-col items-center justify-center gap-6 text-center"
+      data-testid="empty-state">
       <div className="">{icon}</div>
       <h2 className="text-lg font-light opacity-55">{title}</h2>
 

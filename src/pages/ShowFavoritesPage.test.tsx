@@ -16,7 +16,7 @@ describe('ShowFavoritesPage', () => {
         <ShowFavoritesPage />
       </MemoryRouter>,
     )
-    expect(screen.getByText(/you haven't saved any series as a favorite yet/i)).toBeInTheDocument()
+    expect(screen.getByTestId('empty-state')).toBeInTheDocument()
   })
 
   it('shows the favorites list if there are favorites', () => {
