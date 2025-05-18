@@ -1,4 +1,5 @@
-import { Layout, Loading } from '@/components/ui'
+import { Loading } from '@/components/ui'
+import MainLayout from '@/layouts/MainLayout'
 import { ComponentType, lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
@@ -11,7 +12,7 @@ export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<MainLayout />}>
           <Route index element={<LazyRoute component={HomePage} />} />
           <Route path="shows" element={<LazyRoute component={ShowListPage} />} />
           <Route path="shows/:id" element={<LazyRoute component={ShowDetailsPage} />} />

@@ -1,4 +1,4 @@
-import { Poster } from '@/components'
+import { Poster } from '@/components/shows'
 import { Show } from '@/types'
 import { Link } from 'react-router'
 import cx from 'clsx'

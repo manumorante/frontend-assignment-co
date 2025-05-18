@@ -1,4 +1,4 @@
-import { ShowList } from '@/components'
+import { ShowList } from '@/components/shows'
 import { Warn, Loading } from '@/components/ui'
 import { useShows } from '@/hooks/useShows'
 import { useRef } from 'react'

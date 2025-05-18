@@ -25,6 +25,8 @@
 
 - **Custom Hooks for Data Operations**: Each data operation has its own hook to improve reusability and management. I chose not to use `useEffect` because I prefer other methods.
 
+- **Feature-based Components**: For medium-to-large projects, it's crucial to organize features effectively. In this case, I've structured components around `shows`, emphasizing their potential use across other areas of the app.
+
 - **Signals**: Used to manage the state of favorites across the show listing, detail page, and within the action component for adding or removing favorites.
 
 - **Local Storage**: Created a function to persist signals in the browser, effectively replacing the persistence feature of Zustand, for example.
@@ -44,6 +46,8 @@
 ## Notes
 
 - **Auto Barrel Files**: I usually work with an extension that creates and maintains `index.ts` files with all exports. It's very convenient for development and allows for cleaner components.
+
+- **Real File Name**: I use a plugin to see the actual component name, even if the file is `index.tsx`. For example, `/Footer/index.tsx` appears as `Footer (components)` in my tab. Still, I prefer naming files after their components for clarity, as not all developers use this setup.
 
 ## Testing Approach
 

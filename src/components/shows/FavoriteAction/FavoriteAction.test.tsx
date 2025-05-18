@@ -1,4 +1,4 @@
-import { FavoriteAction } from '@/components'
+import { FavoriteAction } from '@/components/shows'
 import { favoritesSignal } from '@/stores/favorites'
 import { mockShow } from '@/test/mocks'
 import { fireEvent, render, screen } from '@testing-library/react'

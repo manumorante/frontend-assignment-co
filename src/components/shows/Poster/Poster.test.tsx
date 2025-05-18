@@ -1,4 +1,4 @@
-import { Poster } from '@/components'
+import { Poster } from '@/components/shows'
 import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 

@@ -1,4 +1,4 @@
-import { ShowCard } from '@/components'
+import { ShowCard } from '@/components/shows'
 import { Show } from '@/types'
 import cx from 'clsx'
 

@@ -1,4 +1,4 @@
-import { FavoriteAction, Poster } from '@/components'
+import { FavoriteAction, Poster } from '@/components/shows'
 import { Warn, Loading } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
 import { Show } from '@/types'
