@@ -4,7 +4,9 @@ import { useEpisodes } from '@/hooks/useEpisodes'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 export default function EpisodeList({ showId }: { showId: Show['id'] }) {
-  const { seasons } = useEpisodes(showId)
+  const { seasons, isFetching } = useEpisodes(showId)
+
+  if (isFetching) return <Skeleton />
 
   return (
     <div className={cx('ShowList space-y-4')}>
@@ -52,5 +54,23 @@ function Summary({ children }: { children: React.ReactNode }) {
       <ChevronRightIcon className="details-open:rotate-90 mr-1 h-5 w-5 transition-transform duration-200" />
       {children}
     </summary>
+  )
+}
+
+function Skeleton() {
+  return (
+    <div className="space-y-3">
+      <div className="rounded-base bg-zinc-50">
+        <div className="rounded-base bg-white p-3">
+          <div className="h-6 w-32 animate-pulse rounded bg-zinc-100"></div>
+        </div>
+
+        <div className="space-y-2 p-3">
+          <div className="h-8 w-full animate-pulse rounded bg-zinc-100"></div>
+          <div className="h-8 w-full animate-pulse rounded bg-zinc-100"></div>
+          <div className="h-8 w-full animate-pulse rounded bg-zinc-100"></div>
+        </div>
+      </div>
+    </div>
   )
 }

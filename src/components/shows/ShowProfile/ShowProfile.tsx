@@ -1,5 +1,5 @@
 import { FavoriteAction, Poster } from '@/components/shows'
-import { Warn, Loading } from '@/components/ui'
+import { Warn } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
 import { Show } from '@/types'
 import parse from 'html-react-parser'
@@ -7,7 +7,7 @@ import parse from 'html-react-parser'
 export default function ShowProfile({ id }: { id: string }) {
   const { show, isLoading, error } = useShow(id)
 
-  if (isLoading) return <Loading />
+  if (isLoading) return <Skeleton />
   if (error) return <Warn message={error.message} />
   if (!show) return <Warn message="Show not found" />
 
@@ -59,6 +59,25 @@ function Rating({ rating }: { rating: Show['rating'] }) {
     <div className="rounded-base flex flex-col items-center gap-1 border border-zinc-300 px-2 py-1 text-xl font-light text-zinc-400 md:text-3xl">
       {rating.average}
       <span className="text-xs uppercase">Rating</span>
+    </div>
+  )
+}
+
+function Skeleton() {
+  return (
+    <div className="w-full p-1 sm:p-0">
+      <div className="flex flex-col gap-6 sm:flex-row">
+        <div className="flex w-full max-w-full flex-shrink-0 flex-grow-0 items-start sm:w-1/3 sm:max-w-none">
+          <div className="w-3/4 sm:w-full">
+            <div className="rounded-base aspect-[17/25] w-full animate-pulse bg-zinc-200 shadow-md"></div>
+          </div>
+        </div>
+
+        <div className="w-full space-y-4 sm:w-2/3">
+          <div className="h-8 w-3/4 animate-pulse bg-zinc-200"></div>
+          <div className="h-48 w-full animate-pulse bg-zinc-200"></div>
+        </div>
+      </div>
     </div>
   )
 }
