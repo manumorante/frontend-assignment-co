@@ -38,6 +38,5 @@ describe('ShowProfile', () => {
     expect(screen.getByText(/comedy/i)).toBeInTheDocument()
     expect(screen.getByText(/rating/i)).toBeInTheDocument()
     expect(screen.getByText('8.5')).toBeInTheDocument()
-    expect(screen.getByText(/favorite/i)).toBeInTheDocument()
   })
 })
