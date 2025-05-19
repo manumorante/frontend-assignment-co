@@ -1,30 +1,36 @@
-import { Loading } from '@/components/ui'
 import MainLayout from '@/layouts/MainLayout'
-import { ComponentType, lazy, Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { lazy } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 
 const HomePage = lazy(() => import('@/pages/HomePage/HomePage'))
 const ShowListPage = lazy(() => import('@/pages/ShowListPage/ShowListPage'))
 const ShowDetailsPage = lazy(() => import('@/pages/ShowDetailsPage/ShowDetailsPage'))
 const ShowFavoritesPage = lazy(() => import('@/pages/ShowFavoritesPage/ShowFavoritesPage'))
 
-export default function AppRouter() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route index element={<LazyRoute component={HomePage} />} />
-          <Route path="shows" element={<LazyRoute component={ShowListPage} />} />
-          <Route path="shows/:id" element={<LazyRoute component={ShowDetailsPage} />} />
-          <Route path="favorites" element={<LazyRoute component={ShowFavoritesPage} />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  )
-}
+const router = createBrowserRouter([
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: 'shows',
+        element: <ShowListPage />,
+      },
+      {
+        path: 'shows/:id',
+        element: <ShowDetailsPage />,
+      },
+      {
+        path: 'favorites',
+        element: <ShowFavoritesPage />,
+      },
+    ],
+  },
+])
 
-const LazyRoute = ({ component: Component }: { component: ComponentType }) => (
-  <Suspense fallback={<Loading />}>
-    <Component />
-  </Suspense>
-)
+export default function AppRouter() {
+  return <RouterProvider router={router} />
+}

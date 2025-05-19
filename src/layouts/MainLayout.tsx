@@ -1,5 +1,5 @@
 import { Footer, Header } from '@/components/ui'
-import { Outlet } from 'react-router'
+import { Outlet, ScrollRestoration } from 'react-router'
 
 export default function MainLayout() {
   return (
@@ -11,6 +11,7 @@ export default function MainLayout() {
       </main>
 
       <Footer />
+      <ScrollRestoration />
     </div>
   )
 }
