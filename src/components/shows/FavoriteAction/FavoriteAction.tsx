@@ -1,9 +1,16 @@
 import { useFavoriteSignal } from '@/hooks/useFavoriteSignal'
 import { Show } from '@/types'
-import { StarIcon as StarOutline } from '@heroicons/react/24/outline'
-import { StarIcon as StarSolid } from '@heroicons/react/24/solid'
+import { HeartIcon as HearIconOutline } from '@heroicons/react/24/outline'
+import { HeartIcon as HearIconSolid } from '@heroicons/react/24/solid'
+import cx from 'clsx'
 
-export default function FavoriteAction({ show }: { show: Show }) {
+export default function FavoriteAction({
+  show,
+  className = 'w-5 h-5',
+}: {
+  show: Show
+  className?: string
+}) {
   const { checkIsFavorite, addFavorite, removeFavorite } = useFavoriteSignal()
   const isFavorite = checkIsFavorite(show.id)
 
@@ -15,17 +22,21 @@ export default function FavoriteAction({ show }: { show: Show }) {
     }
   }
 
-  const iconCx = 'h-6 w-6 sm:h-8 sm:w-8'
+  const tooltipText = isFavorite ? 'Remove from favorites' : 'Add to favorites'
 
   return (
     <button
       type="button"
       onClick={toggleFavorite}
-      aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      aria-label={tooltipText}
       aria-pressed={isFavorite}
-      className="rounded-base flex cursor-pointer flex-col items-center gap-1 border border-zinc-300 px-2 py-1 text-3xl font-light text-zinc-400">
-      {isFavorite ? <StarSolid className={iconCx} /> : <StarOutline className={iconCx} />}
-      <span className="text-xs uppercase">Favorite</span>
+      title={tooltipText}
+      className={cx('cursor-pointer', className)}>
+      {isFavorite ? (
+        <HearIconSolid className="h-full w-full" />
+      ) : (
+        <HearIconOutline className="h-full w-full" />
+      )}
     </button>
   )
 }

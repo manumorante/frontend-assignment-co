@@ -20,23 +20,20 @@ export default function ShowProfile({ id }: { id: string }) {
           </div>
         </div>
 
-        <div className="absolute top-3 right-0 mb-2 flex flex-col gap-3">
+        <div className="absolute top-3 right-0 mb-2 flex flex-col items-center gap-5">
           <Rating rating={show.rating} />
-          <FavoriteAction show={show} />
+          <FavoriteAction
+            show={show}
+            className="rounded-base flex h-12 w-12 font-light text-zinc-400 md:text-3xl"
+          />
         </div>
 
-        <div className="flex w-full flex-col sm:w-2/3">
-          <div className="flex flex-col sm:space-y-4 sm:pr-20">
-            <h1 className="my-2 text-2xl font-light text-zinc-950 sm:my-3 sm:text-4xl">
-              {show.name}
-            </h1>
-            <Genres genres={show.genres} />
-            {show.summary && (
-              <div className="mt-2 text-sm text-zinc-700 sm:mt-0 sm:text-lg sm:text-zinc-800">
-                {parse(show.summary)}
-              </div>
-            )}
-          </div>
+        <div className="w-full space-y-4 sm:w-2/3 sm:pr-28">
+          <h1 className="text-2xl font-light text-zinc-900 sm:text-4xl">{show.name}</h1>
+          <Genres genres={show.genres} />
+          {show.summary && (
+            <div className="p-1 text-sm text-zinc-700 sm:text-base">{parse(show.summary)}</div>
+          )}
         </div>
       </div>
     </div>
@@ -46,7 +43,7 @@ export default function ShowProfile({ id }: { id: string }) {
 function Genres({ genres }: { genres: Show['genres'] }) {
   if (genres.length === 0) return null
   return (
-    <div className="mb-3 flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2">
       {genres.map((genre) => (
         <span key={genre} className="tag">
           {genre}
