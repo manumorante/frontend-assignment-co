@@ -3,10 +3,10 @@ import MainLayout from '@/layouts/MainLayout'
 import { ComponentType, lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
-const HomePage = lazy(() => import('@/pages/HomePage'))
-const ShowListPage = lazy(() => import('@/pages/ShowListPage'))
-const ShowDetailsPage = lazy(() => import('@/pages/ShowDetailsPage'))
-const ShowFavoritesPage = lazy(() => import('@/pages/ShowFavoritesPage'))
+const HomePage = lazy(() => import('@/pages/HomePage/HomePage'))
+const ShowListPage = lazy(() => import('@/pages/ShowListPage/ShowListPage'))
+const ShowDetailsPage = lazy(() => import('@/pages/ShowDetailsPage/ShowDetailsPage'))
+const ShowFavoritesPage = lazy(() => import('@/pages/ShowFavoritesPage/ShowFavoritesPage'))
 
 export default function AppRouter() {
   return (

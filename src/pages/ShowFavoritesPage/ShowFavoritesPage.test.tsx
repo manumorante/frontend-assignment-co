@@ -1,4 +1,4 @@
-import ShowFavoritesPage from '@/pages/ShowFavoritesPage'
+import ShowFavoritesPage from '@/pages/ShowFavoritesPage/ShowFavoritesPage'
 import { favoritesSignal } from '@/stores/favorites'
 import { mockShow } from '@/test/mocks'
 import { render, screen } from '@testing-library/react'
