@@ -2,7 +2,12 @@ import { Episode, Show } from '@/types'
 
 const API_BASE_URL = 'https://api.tvmaze.com'
 
+const delay = () => new Promise((resolve) => setTimeout(resolve, 500))
+
 async function fetcher<T>(endpoint: string): Promise<T> {
+  // Delay para mostrar mejor cosas implementadas como React Query cache, loading, skeleton...
+  await delay()
+
   const response = await fetch(`${API_BASE_URL}${endpoint}`)
   if (!response.ok) throw new Error('fetcher() - Failed to fetch ' + endpoint)
   return response.json() as Promise<T>
