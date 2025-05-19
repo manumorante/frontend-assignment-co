@@ -1,38 +1,39 @@
 import { useState } from 'react'
+import cx from 'clsx'
 
-interface Props {
+interface PosterProps {
   alt: string
   src?: string
   className?: string
   priority?: boolean
 }
 
-export default function Poster({ alt, src, className, priority = false }: Props) {
-  const [status, setStatus] = useState<'loading' | 'error' | 'loaded'>('loading')
+export default function Poster({ alt, src, className, priority = false }: PosterProps) {
+  const [error, setError] = useState(false)
+  const classes =
+    'relative aspect-[17/25] w-full rounded-base overflow-hidden shadow-md transition-transform duration-300 ease-out'
 
   return (
-    <div
-      className={`rounded-base relative aspect-[17/25] w-full overflow-hidden shadow-md transition-transform duration-300 ease-out ${className}`}
-      aria-busy={status === 'loading'}>
-      {status === 'loading' && (
-        <div className="skeleton-pulse absolute inset-0 z-10" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      )}
-      {status === 'error' ? (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-200 text-sm text-zinc-400">
-          {alt || 'No image'}
-        </div>
+    <div className={cx(classes, className)}>
+      {!src || error ? (
+        <NoImage alt={alt} />
       ) : (
         <img
-          src={src || ''}
+          src={src}
           alt={alt}
-          className="relative h-full w-full object-cover"
+          className="h-full w-full object-cover"
           loading={priority ? 'eager' : 'lazy'}
-          onLoad={() => setStatus('loaded')}
-          onError={() => setStatus('error')}
+          onError={() => setError(true)}
         />
       )}
+    </div>
+  )
+}
+
+function NoImage({ alt }: { alt: string }) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 text-sm text-zinc-400">
+      {alt}
     </div>
   )
 }
