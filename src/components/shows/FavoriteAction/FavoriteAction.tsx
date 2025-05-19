@@ -33,9 +33,9 @@ export default function FavoriteAction({
       title={tooltipText}
       className={cx('cursor-pointer', className)}>
       {isFavorite ? (
-        <HearIconSolid className="h-full w-full" />
+        <HearIconSolid className="h-full w-full text-rose-800" />
       ) : (
-        <HearIconOutline className="h-full w-full" />
+        <HearIconOutline className="h-full w-full md:hover:scale-105 md:hover:text-rose-800" />
       )}
     </button>
   )
