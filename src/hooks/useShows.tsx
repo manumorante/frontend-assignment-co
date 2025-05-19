@@ -17,7 +17,9 @@ export function useShows({ pageSize = 20 }: { pageSize?: number } = {}) {
       return undefined
     },
     select: (data) => {
-      const allShows = data.pages.flatMap((page) => page.shows)
+      const allShows = data.pages
+        .flatMap((page) => page.shows)
+        .sort((a, b) => (b.rating?.average ?? 0) - (a.rating?.average ?? 0))
       return {
         allShows,
         shows: allShows.slice(0, uiPage * pageSize),
