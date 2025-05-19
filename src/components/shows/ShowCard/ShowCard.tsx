@@ -1,22 +1,32 @@
 import { FavoriteAction, Poster } from '@/components/shows'
 import { Show } from '@/types'
+import { StarIcon } from '@heroicons/react/24/outline'
 import cx from 'clsx'
 import { Link } from 'react-router'
-import { StarIcon } from '@heroicons/react/24/outline'
 
-export default function ShowCard({ show, priority = false }: { show: Show; priority?: boolean }) {
+type ShowCardProps = {
+  show?: Show
+  priority?: boolean
+  isLoading?: boolean
+}
+
+const cardCx = cx(
+  'ShowCard',
+  'rounded-base',
+  'bg-white/70 text-zinc-600 md:hover:bg-white md:hover:text-black',
+  'shadow-lg/5',
+  'transition-colors duration-300 ease-out',
+  'flex flex-col',
+)
+
+export default function ShowCard({ show, priority = false, isLoading }: ShowCardProps) {
+  if (isLoading) return <Skeleton />
+  if (!show) return null
+
   const singleUrl = `/shows/${show.id}`
 
   return (
-    <div
-      className={cx(
-        'ShowCard',
-        'rounded-base',
-        'bg-white/70 text-zinc-600 md:hover:bg-white md:hover:text-black',
-        'shadow-xl/5',
-        'transition-colors duration-300 ease-out',
-        'flex flex-col',
-      )}>
+    <div className={cardCx}>
       <Link to={singleUrl}>
         <Poster
           alt={show.name}
@@ -36,6 +46,18 @@ export default function ShowCard({ show, priority = false }: { show: Show; prior
           </div>
           <FavoriteAction show={show} />
         </div>
+      </div>
+    </div>
+  )
+}
+
+const Skeleton = () => {
+  return (
+    <div className={cardCx}>
+      <div className="rounded-base aspect-[17/25] w-full animate-pulse bg-zinc-200" />
+      <div className="flex flex-1 flex-col justify-between gap-2 p-2">
+        <div className="h-6 w-3/4 animate-pulse rounded bg-zinc-100" />
+        <div className="h-5 w-16 animate-pulse rounded bg-zinc-100" />
       </div>
     </div>
   )
