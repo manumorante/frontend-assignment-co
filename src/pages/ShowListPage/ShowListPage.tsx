@@ -1,5 +1,5 @@
 import { ShowList } from '@/components/shows'
-import { Warn, Loading } from '@/components/ui'
+import { Warn } from '@/components/ui'
 import { useShows } from '@/hooks/useShows'
 import { useRef } from 'react'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
@@ -14,12 +14,11 @@ export default function ShowListPage() {
     enabled: hasNextPage && !isFetching,
   })
 
-  if (isFetching && shows.length === 0) return <Loading />
   if (!isFetching && shows.length === 0) return <Warn message="No shows are currently available." />
 
   return (
     <div className="ShowListPage min-h-screen">
-      <ShowList shows={shows} />
+      <ShowList shows={shows} isLoading={isFetching} />
 
       {hasNextPage && (
         <button
