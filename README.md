@@ -23,7 +23,7 @@
 
 ## Key Decisions
 
-- **Custom Hooks for Data Operations**: Each data operation has its own hook to improve reusability and management. I chose not to use `useEffect` because I prefer other methods.
+- **Custom Hooks for Data Operations**: Each data operation has its own hook for better reusability and better lifecycle control. By personal choice or habit, I've tried not to use any `useEffect`.
 
 - **Feature-based Components**: For medium-to-large projects, it's crucial to organize features effectively. In this case, I've structured components around `shows`, emphasizing their potential use across other areas of the app.
 
@@ -38,6 +38,8 @@
 - **Responsive Design**: Ensured comfortable use on mobile devices by applying best practices, such as avoiding the 300ms delay on buttons and preventing zoom when focusing on inputs.
 
 - **Tailwind CSS**: Initially, I was skeptical about _Tailwind_, but it has proven to be versatile and effective. I love it for the control it offers, though I understand companies may use other systems like CSS with BEM or CSS Modules. Even if it's not being used, it can still be utilized for quick prototyping and advancing projects. It's not just another _Bootstrap_!
+
+- **Accessibility**: Applied best practices to enhance accessibility.
 
 - **Prettier**: Configured to my favorite style :) An indispensable tool, especially for team collaboration, with the Tailwind CSS plugin enhancing readability through consistent class order.
 
@@ -87,8 +89,6 @@ While testing some presentational components is optional, I find it valuable to 
 - **Search**: Add a show search feature, leveraging signals to retain the `query` across components.
 
 - **Pagination**: Retain the page the user was on, and switch to conventional pagination if _Product Team_ considers it a useful feature for users. _Instagram_ would never give up its infinite scroll, but for a documentation website, for example, classic pagination is usually more appropriate.
-
-- **Separate Requests + Skeleton:** Fetch episodes separately (within the component) and display a skeleton while loading. This lightens the page load and looks great.
 
 - **Test Coverage**: There’s no login or sensitive features; otherwise, I would suggest using _Cypress_. (Product decision)
 
