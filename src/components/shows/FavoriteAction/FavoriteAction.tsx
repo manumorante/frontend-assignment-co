@@ -1,12 +1,11 @@
 import { useFavoriteSignal } from '@/hooks/useFavoriteSignal'
 import { Show } from '@/types'
-import { HeartIcon as HearIconOutline } from '@heroicons/react/24/outline'
-import { HeartIcon as HearIconSolid } from '@heroicons/react/24/solid'
+import { HeartIcon } from '@heroicons/react/24/outline'
 import cx from 'clsx'
 
 export default function FavoriteAction({
   show,
-  className = 'w-5 h-5',
+  className = 'w-7 h-7',
 }: {
   show: Show
   className?: string
@@ -31,12 +30,20 @@ export default function FavoriteAction({
       aria-label={tooltipText}
       aria-pressed={isFavorite}
       title={tooltipText}
-      className={cx('cursor-pointer', className)}>
-      {isFavorite ? (
-        <HearIconSolid className="h-full w-full text-rose-800" />
-      ) : (
-        <HearIconOutline className="h-full w-full md:hover:scale-105 md:hover:text-rose-800" />
-      )}
+      className={cx('flex cursor-pointer items-center justify-center', className)}>
+      <HeartIcon
+        className={cx(
+          'h-full w-full',
+          'transition-all duration-200 ease-out',
+          'md:hover:scale-120',
+
+          { 'fill-rose-700 text-rose-700': isFavorite },
+          {
+            'fill-rose-700/0 text-rose-800 md:hover:fill-rose-700 md:hover:text-rose-700':
+              !isFavorite,
+          },
+        )}
+      />
     </button>
   )
 }

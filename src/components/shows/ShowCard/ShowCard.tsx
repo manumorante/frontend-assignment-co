@@ -1,6 +1,6 @@
 import { FavoriteAction, Poster } from '@/components/shows'
 import { Show } from '@/types'
-import { StarIcon } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/24/solid'
 import cx from 'clsx'
 import { Link } from 'react-router'
 
@@ -35,16 +35,16 @@ export default function ShowCard({ show, priority = false, isLoading }: ShowCard
           priority={priority}
         />
       </Link>
-      <div className="Meta flex flex-1 flex-col justify-between gap-2 p-2">
+      <div className="Meta flex flex-1 flex-col justify-between">
         <Link to={singleUrl}>
-          <h3 className="leading-tight font-medium tracking-tight">{show.name}</h3>
+          <h3 className="px-2 pt-3 leading-tight font-medium tracking-tight">{show.name}</h3>
         </Link>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-0.5 font-light">
-            <StarIcon className="h-5 w-5" />
-            {show.rating.average}
+          <div className="flex items-center gap-0.5 p-2">
+            <StarIcon className="h-4 w-4 text-yellow-500" />
+            <span className="text-zinc-400">{show.rating.average}</span>
           </div>
-          <FavoriteAction show={show} />
+          <FavoriteAction show={show} className="h-9 w-9 p-2" />
         </div>
       </div>
     </div>
