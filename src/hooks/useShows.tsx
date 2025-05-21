@@ -5,7 +5,7 @@ import { useState } from 'react'
 export function useShows({ pageSize = 20 }: { pageSize?: number } = {}) {
   const [uiPage, setUiPage] = useState(1)
 
-  const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, isFetching, error } = useInfiniteQuery({
     queryKey: ['shows'],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
@@ -25,6 +25,7 @@ export function useShows({ pageSize = 20 }: { pageSize?: number } = {}) {
         shows: allShows.slice(0, uiPage * pageSize),
       }
     },
+    retry: false,
   })
 
   const hasMoreLocal = data && data.shows.length < data.allShows.length
@@ -45,5 +46,6 @@ export function useShows({ pageSize = 20 }: { pageSize?: number } = {}) {
     isFetching,
     hasNextPage: hasMoreLocal || hasNextPage,
     fetchNextPage: loadMore,
+    error,
   }
 }

@@ -5,7 +5,9 @@ import { useRef } from 'react'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 
 export default function ShowListPage() {
-  const { shows, isFetching, hasNextPage, fetchNextPage } = useShows({ pageSize: 42 })
+  const { shows, isFetching, hasNextPage, fetchNextPage, error } = useShows({
+    pageSize: 42,
+  })
   const loadMoreRef = useRef<HTMLButtonElement | null>(null)
 
   useInfiniteScroll({
@@ -14,7 +16,10 @@ export default function ShowListPage() {
     enabled: hasNextPage && !isFetching,
   })
 
-  if (!isFetching && shows.length === 0) return <Warn message="No shows are currently available." />
+  if (error) return <Warn message={error.message} />
+  if (!isFetching && shows.length === 0) {
+    return <Warn message="No shows are currently available." />
+  }
 
   return (
     <div className="ShowListPage min-h-screen">

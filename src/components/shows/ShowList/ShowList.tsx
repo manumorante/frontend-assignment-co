@@ -9,7 +9,7 @@ type ShowListProps = {
 
 const gridCx = cx(
   'ShowList grid w-full',
-  'gap-x-3 gap-y-5 lg:gap-x-3',
+  'gap-x-5 gap-y-5 lg:gap-x-5',
   'grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6',
 )
 
