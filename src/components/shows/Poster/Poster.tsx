@@ -1,21 +1,32 @@
 import { useState } from 'react'
-import cx from 'clsx'
+import { cn } from '@/lib/utils'
 
 interface PosterProps {
-  alt: string
+  alt?: string
   src?: string
   className?: string
   priority?: boolean
+  isLoading?: boolean
 }
 
-export default function Poster({ alt, src, className, priority = false }: PosterProps) {
+export default function Poster({
+  alt = '',
+  src,
+  className,
+  priority = false,
+  isLoading = false,
+}: PosterProps) {
   const [error, setError] = useState(false)
-  const classes = cx(
+  const classes = cn(
     'group relative aspect-[17/25] w-full rounded-base shadow-md transition-transform duration-300 ease-out md:group-hover:z-50 z-10',
   )
 
+  if (isLoading) {
+    return <Skeleton className={className} />
+  }
+
   return (
-    <div className={cx(classes, className)}>
+    <div className={cn(classes, className)}>
       {!src || error ? (
         <NoImage alt={alt} />
       ) : (
@@ -42,8 +53,16 @@ export default function Poster({ alt, src, className, priority = false }: Poster
 
 function NoImage({ alt }: { alt: string }) {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 text-sm text-zinc-400">
+    <div
+      data-testid="no-image"
+      className="absolute inset-0 flex items-center justify-center bg-zinc-200 text-sm text-zinc-400">
       {alt}
     </div>
+  )
+}
+
+function Skeleton({ className }: { className?: string }) {
+  return (
+    <div role="status" className={cn('rounded-base skeleton-pulse aspect-[17/25]', className)} />
   )
 }

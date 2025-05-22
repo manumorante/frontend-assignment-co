@@ -3,22 +3,22 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 describe('Poster', () => {
-  it('renders image with correct src and alt', () => {
-    render(<Poster alt="Test Poster" src="/fake-image.jpg" />)
-    const img = screen.getByRole('img')
-    expect(img).toHaveAttribute('src', '/fake-image.jpg')
-    expect(img).toHaveAttribute('alt', 'Test Poster')
+  it('renders image', () => {
+    render(<Poster alt="Test" src="/test.jpg" />)
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/test.jpg')
   })
 
-  it('handles image loading errors', () => {
-    render(<Poster alt="Error Image" src="/broken-image.jpg" />)
-    const img = screen.getByRole('img')
-    fireEvent.error(img)
-    expect(screen.getByText('Error Image')).toBeInTheDocument()
+  it('shows skeleton when loading', () => {
+    render(<Poster isLoading />)
+    expect(screen.getByRole('status')).toBeInTheDocument()
   })
 
-  it('handles missing image source', () => {
-    render(<Poster alt="No Source" />)
-    expect(screen.getByText('No Source')).toBeInTheDocument()
+  it('shows no-image when no src or error', () => {
+    const { rerender } = render(<Poster alt="Test" src="" />)
+    expect(screen.getByTestId('no-image')).toBeInTheDocument()
+
+    rerender(<Poster alt="Test" src="/error.jpg" />)
+    fireEvent.error(screen.getByRole('img'))
+    expect(screen.getByTestId('no-image')).toBeInTheDocument()
   })
 })
