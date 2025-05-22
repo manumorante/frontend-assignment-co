@@ -5,7 +5,7 @@ const API_BASE_URL = 'https://api.tvmaze.com'
 const delay = () => new Promise((resolve) => setTimeout(resolve, 500))
 
 async function fetcher<T>(endpoint: string): Promise<T> {
-  // Delay para mostrar mejor cosas implementadas como React Query cache, loading, skeleton...
+  // Extra delay to make loading/cache more noticeable
   await delay()
 
   const response = await fetch(`${API_BASE_URL}${endpoint}`)
