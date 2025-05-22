@@ -6,7 +6,7 @@ export default function MainLayout() {
     <div className="flex min-h-screen flex-col gap-8">
       <Header />
 
-      <main className="main-container flex-grow">
+      <main className="main-container flex flex-grow flex-col">
         <Outlet />
       </main>
 

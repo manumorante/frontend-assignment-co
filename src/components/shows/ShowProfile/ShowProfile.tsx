@@ -1,5 +1,5 @@
 import { FavoriteAction, Poster } from '@/components/shows'
-import { Warn } from '@/components/ui'
+import { ErrorAlert } from '@/components/ui'
 import { useShow } from '@/hooks/useShow'
 import { Show } from '@/types'
 import parse from 'html-react-parser'
@@ -8,8 +8,8 @@ export default function ShowProfile({ id }: { id: string }) {
   const { show, isLoading, error } = useShow(id)
 
   if (isLoading) return <Skeleton />
-  if (error) return <Warn message={error.message} />
-  if (!show) return <Warn message="Show not found" />
+  if (error) return <ErrorAlert message={error.message} />
+  if (!show) return <ErrorAlert message="Show not found" />
 
   return (
     <div className="w-full p-1 sm:p-0">
@@ -69,13 +69,13 @@ function Skeleton() {
       <div className="flex flex-col gap-6 sm:flex-row">
         <div className="flex w-full max-w-full flex-shrink-0 flex-grow-0 items-start sm:w-1/3 sm:max-w-none">
           <div className="w-3/4 sm:w-full">
-            <div className="rounded-base aspect-[17/25] w-full animate-pulse bg-zinc-200 shadow-md"></div>
+            <div className="skeleton-pulse aspect-[17/25]"></div>
           </div>
         </div>
 
         <div className="w-full space-y-4 sm:w-2/3">
-          <div className="h-8 w-3/4 animate-pulse bg-zinc-200"></div>
-          <div className="h-48 w-full animate-pulse bg-zinc-200"></div>
+          <div className="skeleton-pulse h-8 w-3/4"></div>
+          <div className="skeleton-pulse h-48 w-full"></div>
         </div>
       </div>
     </div>

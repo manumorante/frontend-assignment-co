@@ -1,5 +1,5 @@
 import { ShowList } from '@/components/shows'
-import { Warn } from '@/components/ui'
+import { ErrorAlert } from '@/components/ui'
 import { useShows } from '@/hooks/useShows'
 import { useRef } from 'react'
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
@@ -16,9 +16,9 @@ export default function ShowListPage() {
     enabled: hasNextPage && !isFetching,
   })
 
-  if (error) return <Warn message={error.message} />
+  if (error) return <ErrorAlert message={error.message} />
   if (!isFetching && shows.length === 0) {
-    return <Warn message="No shows are currently available." />
+    return <ErrorAlert message="No shows are currently available." />
   }
 
   return (

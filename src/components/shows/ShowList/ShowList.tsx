@@ -24,7 +24,7 @@ export default function ShowList({ shows, isLoading }: ShowListProps) {
             <ShowCard key={`skeleton-${idx}`} isLoading />
           ))
         : shows.map((show, idx) => (
-            <ShowCard key={show.id} show={show} priority={idx < PRIORITY_THRESHOLD} />
+            <ShowCard isLoading key={show.id} show={show} priority={idx < PRIORITY_THRESHOLD} />
           ))}
     </div>
   )

@@ -1,11 +1,11 @@
-import { Warn } from '@/components/ui'
+import { ErrorAlert } from '@/components/ui'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-describe('Warn', () => {
+describe('ErrorAlert', () => {
   it('displays the error message correctly', () => {
     const testMessage = 'An error has occurred'
-    render(<Warn message={testMessage} />)
+    render(<ErrorAlert message={testMessage} />)
     expect(screen.getByText(testMessage)).toBeInTheDocument()
   })
 })
