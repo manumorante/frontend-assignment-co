@@ -1,7 +1,7 @@
 import { FavoriteAction, Poster } from '@/components/shows'
+import { cn } from '@/lib/utils'
 import { Show } from '@/types'
 import { StarIcon } from '@heroicons/react/24/solid'
-import cx from 'clsx'
 import { Link } from 'react-router'
 
 type ShowCardProps = {
@@ -10,7 +10,7 @@ type ShowCardProps = {
   isLoading?: boolean
 }
 
-const cardCx = cx(
+const cardCx = cn(
   'ShowCard',
   'rounded-base',
   'bg-white/70 text-zinc-600 md:hover:bg-white md:hover:text-black',

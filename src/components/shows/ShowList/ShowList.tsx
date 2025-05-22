@@ -1,13 +1,13 @@
 import { ShowCard } from '@/components/shows'
+import { cn } from '@/lib/utils'
 import { Show } from '@/types'
-import cx from 'clsx'
 
 type ShowListProps = {
   shows: Show[]
   isLoading?: boolean
 }
 
-const gridCx = cx(
+const gridCx = cn(
   'ShowList grid w-full',
   'gap-x-5 gap-y-5 lg:gap-x-5',
   'grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6',

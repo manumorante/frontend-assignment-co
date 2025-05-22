@@ -1,7 +1,7 @@
 import { useFavoriteSignal } from '@/hooks/useFavoriteSignal'
+import { cn } from '@/lib/utils'
 import { Show } from '@/types'
 import { HeartIcon } from '@heroicons/react/24/outline'
-import cx from 'clsx'
 
 export default function FavoriteAction({
   show,
@@ -30,9 +30,9 @@ export default function FavoriteAction({
       aria-label={tooltipText}
       aria-pressed={isFavorite}
       title={tooltipText}
-      className={cx('flex cursor-pointer items-center justify-center', className)}>
+      className={cn('flex cursor-pointer items-center justify-center', className)}>
       <HeartIcon
-        className={cx(
+        className={cn(
           'h-full w-full',
           'transition-all duration-200 ease-out',
           'md:hover:scale-120',

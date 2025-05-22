@@ -1,6 +1,6 @@
-import { Show, Season, Episode } from '@/types'
-import cx from 'clsx'
 import { useEpisodes } from '@/hooks/useEpisodes'
+import { cn } from '@/lib/utils'
+import { Episode, Season, Show } from '@/types'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 export default function EpisodeList({ showId }: { showId: Show['id'] }) {
@@ -9,7 +9,7 @@ export default function EpisodeList({ showId }: { showId: Show['id'] }) {
   if (isFetching) return <Skeleton />
 
   return (
-    <div className={cx('ShowList space-y-4')}>
+    <div className={cn('ShowList space-y-4')}>
       {seasons.map((season, idx) => (
         <SeasonPanel key={season.season} season={season} open={idx === 0} />
       ))}
@@ -32,9 +32,9 @@ function SeasonPanel({ season, open }: { season: Season; open: boolean }) {
 
 function EpisodeItem({ episode, seasonNumber }: { episode: Episode; seasonNumber: number }) {
   return (
-    <div className={cx('EpisodeItem group flex items-center', 'px-2 py-2 md:px-4')}>
+    <div className={cn('EpisodeItem group flex items-center', 'px-2 py-2 md:px-4')}>
       <span
-        className={cx('font-mono text-lg font-light text-black', 'mr-4', 'min-w-[56px] text-left')}>
+        className={cn('font-mono text-lg font-light text-black', 'mr-4', 'min-w-[56px] text-left')}>
         {seasonNumber}x{String(episode.number).padStart(2, '0')}
       </span>
       <span className="truncate text-base font-light text-zinc-700">{episode.name}</span>
@@ -45,7 +45,7 @@ function EpisodeItem({ episode, seasonNumber }: { episode: Episode; seasonNumber
 function Summary({ children }: { children: React.ReactNode }) {
   return (
     <summary
-      className={cx(
+      className={cn(
         'flex cursor-pointer items-center gap-2 px-4 py-3 select-none',
         'rounded-base bg-white font-medium text-zinc-700',
         'text-lg',
@@ -62,13 +62,13 @@ function Skeleton() {
     <div className="space-y-3">
       <div className="rounded-base bg-zinc-50">
         <div className="rounded-base bg-white p-3">
-          <div className="h-6 w-32 skeleton-pulse"></div>
+          <div className="skeleton-pulse h-6 w-32"></div>
         </div>
 
         <div className="space-y-2 p-3">
-          <div className="h-8 skeleton-pulse"></div>
-          <div className="h-8 skeleton-pulse"></div>
-          <div className="h-8 skeleton-pulse"></div>
+          <div className="skeleton-pulse h-8"></div>
+          <div className="skeleton-pulse h-8"></div>
+          <div className="skeleton-pulse h-8"></div>
         </div>
       </div>
     </div>
