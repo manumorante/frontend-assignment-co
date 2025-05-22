@@ -29,7 +29,7 @@ export default function ShowProfile({ id }: { id: string }) {
         </div>
 
         <div className="w-full space-y-4 sm:w-2/3 sm:pr-28">
-          <h1 className="text-2xl font-light text-zinc-900 sm:text-4xl">{show.name}</h1>
+          <h1 className="text-primary text-2xl font-light sm:text-4xl">{show.name}</h1>
           <Genres genres={show.genres} />
           {show.summary && (
             <div className="p-1 text-sm text-zinc-700 sm:text-base">{parse(show.summary)}</div>
@@ -56,7 +56,7 @@ function Genres({ genres }: { genres: Show['genres'] }) {
 function Rating({ rating }: { rating: Show['rating'] }) {
   if (!rating.average) return null
   return (
-    <div className="rounded-base flex flex-col items-center gap-1 border border-zinc-300 px-2 py-1 text-xl font-light text-zinc-400 md:text-3xl">
+    <div className="rounded-base border-secondary flex flex-col items-center gap-1 border px-2 py-1 text-xl font-light text-zinc-400 md:text-3xl">
       {rating.average}
       <span className="text-xs uppercase">Rating</span>
     </div>

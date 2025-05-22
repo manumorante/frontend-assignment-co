@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-primary: var(--color-zinc-900);
+  --color-secondary: var(--color-zinc-300);
   --animate-shimmer: shimmer 3s linear infinite;
 
   @keyframes shimmer {
@@ -29,7 +31,7 @@
     /* Typography */
     @apply text-sm font-medium text-white;
 
-    @apply bg-primary rounded-lg;
+    @apply rounded-lg bg-zinc-900;
     @apply transition-colors outline-none;
     @apply cursor-pointer touch-none select-none;
 
@@ -40,8 +42,8 @@
   }
 
   .button.secondary {
-    @apply text-primary font-medium;
-    @apply border-secondary border bg-zinc-50;
+    @apply font-medium text-zinc-900;
+    @apply border border-zinc-300 bg-zinc-50;
     /* State */
     @apply md:hover:border-zinc-300 md:hover:bg-white md:hover:text-zinc-800;
   }
@@ -49,8 +51,8 @@
   /* Tags */
   .tag {
     @apply px-2 py-0.5;
-    @apply text-primary text-sm;
-    @apply border-secondary rounded-lg border;
+    @apply text-sm text-zinc-900;
+    @apply rounded-lg border border-zinc-300;
   }
 
   /* Skeleton */

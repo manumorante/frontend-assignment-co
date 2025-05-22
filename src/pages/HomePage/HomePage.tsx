@@ -5,7 +5,7 @@ const styles = {
   // Estilos para los cards que se repiten
   cardWrapper: 'w-full flex',
   card: 'rounded-base border border-zinc-200 bg-white shadow-xs transition-shadow duration-300 md:hover:shadow-lg px-4 py-5 sm:p-6 flex-1 flex flex-col',
-  cardTitle: 'text-lg font-medium text-zinc-900',
+  cardTitle: 'text-lg font-medium text-primary',
   cardDesc: 'mt-2 text-sm text-zinc-500',
 }
 
