@@ -29,10 +29,10 @@ export default function Poster({ alt, src, className, priority = false }: Poster
           />
           <img
             src={src}
-            alt={alt}
+            role="presentation"
+            aria-hidden="true"
             className="absolute top-0 z-0 h-full w-full scale-75 object-cover blur-2xl transition-transform duration-300 md:group-hover:scale-100"
-            loading={priority ? 'eager' : 'lazy'}
-            onError={() => setError(true)}
+            loading="eager"
           />
         </>
       )}

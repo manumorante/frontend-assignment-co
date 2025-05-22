@@ -54,10 +54,10 @@ export default function ShowCard({ show, priority = false, isLoading }: ShowCard
 const Skeleton = () => {
   return (
     <div className={cardCx}>
-      <div className="rounded-base aspect-[17/25] w-full animate-pulse bg-zinc-200" />
+      <div className="rounded-base skeleton-pulse aspect-[17/25]" />
       <div className="flex flex-1 flex-col justify-between gap-2 p-2">
-        <div className="h-6 w-3/4 animate-pulse rounded bg-zinc-100" />
-        <div className="h-5 w-16 animate-pulse rounded bg-zinc-100" />
+        <div className="skeleton-pulse h-6 w-3/4" />
+        <div className="skeleton-pulse h-5 w-16" />
       </div>
     </div>
   )

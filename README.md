@@ -67,7 +67,7 @@ While testing some presentational components is optional, I find it valuable to 
 | [x] | Hook: useShows             | Pagination/data hook                     |
 | [x] | Hook: useShow              | Data hook for details                    |
 | [x] | Store: Favorites           | Global state, persistence                |
-| [x] | Component: Warn            | UI feedback                              |
+| [x] | Component: ErrorAlert      | UI feedback                              |
 | [x] | Component: Loading         | UI feedback                              |
 | [x] | Component: Header          | Layout/navigation                        |
 | [x] | Component: Poster          | Image rendering                          |

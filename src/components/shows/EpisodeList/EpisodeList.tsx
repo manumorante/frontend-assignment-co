@@ -62,13 +62,13 @@ function Skeleton() {
     <div className="space-y-3">
       <div className="rounded-base bg-zinc-50">
         <div className="rounded-base bg-white p-3">
-          <div className="h-6 w-32 animate-pulse rounded bg-zinc-100"></div>
+          <div className="h-6 w-32 skeleton-pulse"></div>
         </div>
 
         <div className="space-y-2 p-3">
-          <div className="h-8 w-full animate-pulse rounded bg-zinc-100"></div>
-          <div className="h-8 w-full animate-pulse rounded bg-zinc-100"></div>
-          <div className="h-8 w-full animate-pulse rounded bg-zinc-100"></div>
+          <div className="h-8 skeleton-pulse"></div>
+          <div className="h-8 skeleton-pulse"></div>
+          <div className="h-8 skeleton-pulse"></div>
         </div>
       </div>
     </div>
