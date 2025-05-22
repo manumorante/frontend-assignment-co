@@ -1,9 +1,16 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #18181b; /* zinc-900 */
-  --color-secondary: #d4d4d8; /* zinc-300 */
-  --skeleton-gradient: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  --animate-shimmer: shimmer 3s linear infinite;
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
 }
 
 @layer base {
@@ -22,13 +29,8 @@
     /* Typography */
     @apply text-sm font-medium text-white;
 
-    /* Background & Border */
     @apply bg-primary rounded-lg;
-
-    /* Effects */
     @apply transition-colors outline-none;
-
-    /* Interactivity */
     @apply cursor-pointer touch-none select-none;
 
     /* State */
@@ -38,37 +40,30 @@
   }
 
   .button.secondary {
-    /* Typography */
     @apply text-primary font-medium;
-
-    /* Background & Border */
     @apply border-secondary border bg-zinc-50;
-
     /* State */
     @apply md:hover:border-zinc-300 md:hover:bg-white md:hover:text-zinc-800;
   }
 
   /* Tags */
   .tag {
-    /* Box Model */
     @apply px-2 py-0.5;
-
-    /* Typography */
     @apply text-primary text-sm;
-
-    /* Background & Border */
     @apply border-secondary rounded-lg border;
   }
 
   /* Skeleton */
   .skeleton-pulse {
-    /* Background & Border */
-    background: var(--skeleton-gradient);
-    background-size: 400% 100%;
-    @apply rounded-lg;
-
-    /* Effects */
-    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    @apply rounded bg-zinc-100;
+    background-image: linear-gradient(
+      to right,
+      var(--color-zinc-100) 0%,
+      var(--color-zinc-200) 20%,
+      var(--color-zinc-100) 100%
+    );
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
   }
 }
 
@@ -76,16 +71,9 @@
   .rounded-base {
     @apply rounded-lg;
   }
-  .main-container {
-    @apply mx-auto w-full max-w-5xl min-w-80 px-4 sm:px-6 lg:px-8;
-  }
-}
 
-@keyframes skeleton-pulse {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
+  .main-container {
+    @apply mx-auto flex w-full max-w-5xl min-w-80;
+    @apply px-4 sm:px-6 lg:px-8;
   }
 }
