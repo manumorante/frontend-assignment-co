@@ -1,8 +1,8 @@
 import { ShowList } from '@/components/shows'
 import { ErrorAlert } from '@/components/ui'
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import { useShows } from '@/hooks/useShows'
 import { useRef } from 'react'
-import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 
 export default function ShowListPage() {
   const { shows, isFetching, hasNextPage, fetchNextPage, error } = useShows({

@@ -1,5 +1,5 @@
 import { api } from '@/lib/api'
-import { mockShow, mockShows, mockEpisodes } from '@/test/mocks'
+import { mockEpisodes, mockShow, mockShows } from '@/test/mocks'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('api', () => {

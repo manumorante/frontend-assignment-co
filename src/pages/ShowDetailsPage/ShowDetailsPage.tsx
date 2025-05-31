@@ -1,5 +1,4 @@
 import { EpisodeList, ShowProfile } from '@/components/shows'
-
 import { useParams } from 'react-router'
 
 export default function ShowDetailsPage() {

@@ -1,6 +1,6 @@
 import { api } from '@/lib/api'
-import { useQuery } from '@tanstack/react-query'
 import { Episode, Season } from '@/types'
+import { useQuery } from '@tanstack/react-query'
 
 export function useEpisodes(showId: string) {
   const { data, isFetching, error } = useQuery<Episode[], unknown, Season[]>({

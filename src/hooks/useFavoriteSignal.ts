@@ -1,5 +1,5 @@
+import { addFavorite, checkIsFavorite, favoritesSignal, removeFavorite } from '@/stores/favorites'
 import { useSignals } from '@preact/signals-react/runtime'
-import { favoritesSignal, addFavorite, removeFavorite, checkIsFavorite } from '@/stores/favorites'
 
 export function useFavoriteSignal() {
   useSignals()

@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react'
-import ShowProfile from './ShowProfile'
-import { describe, it, expect, vi, Mock } from 'vitest'
 import { useShow } from '@/hooks/useShow'
 import { mockShow } from '@/test/mocks'
+import { render, screen } from '@testing-library/react'
+import { describe, expect, it, Mock, vi } from 'vitest'
+import ShowProfile from './ShowProfile'
 
 vi.mock('@/hooks/useShow')
 const mockedUseShow = useShow as Mock
